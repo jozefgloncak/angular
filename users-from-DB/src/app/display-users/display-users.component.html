@@ -1,7 +1,12 @@
-<!-- <ng-container matColumnDef="userName">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let user">Jozef</mat-cell>
-</ng-container> -->
-<p>
-  display-user component works
-</p>
+<mat-table [dataSource]="myDataSource">
+  <ng-container matColumnDef="surname">
+      <mat-header-cell *matHeaderCellDef>Surname</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.surname}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.name}}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="['name', 'surname']"></mat-header-row>
+  <mat-row *matRowDef="let myRowData; columns: ['name', 'surname']"></mat-row>
+</mat-table>

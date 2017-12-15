@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DisplayUsersComponent } from './display-users/display-users.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [

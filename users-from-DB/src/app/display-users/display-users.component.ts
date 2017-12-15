@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-display-users',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayUsersComponent implements OnInit {
 
-  constructor() { }
+  myDataSource  = new MatTableDataSource();
+
+  constructor() {
+    this.myDataSource.data = [
+      {name:"Jozef",surname:"Gloncak"}
+      ,{name:"Martin",surname:"Solansky"}
+    ]
+  }
 
   ngOnInit() {
   }
