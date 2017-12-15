@@ -1,5 +1,5 @@
 export class User {
-    constructor(public name:string, public surname:string) {
-
-    }
+    id:number;
+    name:string;
+    username:string;
 }
