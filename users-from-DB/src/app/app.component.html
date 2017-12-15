@@ -4,6 +4,9 @@
   <button mat-menu-item>Store</button>
 </mat-menu>
 
-<div *ngIf="showUsers">
-hello
-</div>
+<!-- <ng-container matColumnDef="userName">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+</ng-container> -->
+<!-- <app-display-users *ngIf="showUsers==true"></app-display-users> -->
+<app-display-users></app-display-users>
