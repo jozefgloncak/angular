@@ -1,5 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+#projects
+/binding-interpolation/
+/proj01/
+/template-syntax/
+/tours-of-heros/
+
 # compiled output
 /dist
 /tmp
