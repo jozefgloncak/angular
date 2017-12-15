@@ -27,7 +27,7 @@ import { UserService } from './user.service';
     MatMenuModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

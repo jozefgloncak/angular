@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { of } from 'rxjs/observable/of';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../user';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-display-users',
@@ -8,16 +14,20 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DisplayUsersComponent implements OnInit {
 
-  myDataSource  = new MatTableDataSource();
+  myDataSource = new UserDataSource(this.userService);
 
-  constructor() {
-    this.myDataSource.data = [
-      {name:"Jozef",surname:"Gloncak"}
-      ,{name:"Martin",surname:"Solansky"}
-    ]
-  }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
   }
+}
 
+export class UserDataSource extends DataSource<any> {
+  constructor(private userService: UserService) {
+    super();
+  }
+  connect(): Observable<User[]> {
+    return this.userService.getUser();
+  }
+  disconnect() {}
 }
