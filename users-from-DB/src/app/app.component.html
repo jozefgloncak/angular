@@ -1,8 +1,16 @@
 <button mat-button  [matMenuTriggerFor]="menu">Users</button>
+<button mat-button  (click)="hideAllSubComponents()">Hide all</button>
+
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="toggleDisplayUsers()">Display</button>
-  <button mat-menu-item>Store</button>
+  <button mat-menu-item [matMenuTriggerFor]="display">Display</button>
+  <button mat-menu-item>New</button>
 </mat-menu>
 
-<!-- <app-display-users></app-display-users> -->
-<app-display-users *ngIf="showUsers==true"></app-display-users>
+<mat-menu #display="matMenu">
+    <button mat-menu-item (click)="showUsersInTable=true">as table</button>
+    <button mat-menu-item (click)="showUsersInOrdinaryTable=true">as oridinary table</button>
+</mat-menu>      
+
+<!-- <app-display-users-table></app-display-users-table> -->
+<app-display-users-table *ngIf="showUsersInTable==true"></app-display-users-table>
+<app-display-users-ordinary-table *ngIf="showUsersInOrdinaryTable==true"></app-display-users-ordinary-table>

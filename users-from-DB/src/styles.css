@@ -1,3 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+table {
+    border-collapse: collapse;
+}
+
+.col1 {
+    background-color:beige;
+    text-align: right;
+    width:50px
+}
+
+.hcol1 {
+    background-color:bisque;
+    text-align: center;
+    width:50px
+}
+
+
+.col2 {
+    background-color:beige;
+    text-align: right;
+    width:170px
+}
+
+.hcol2 {
+    background-color:bisque;
+    text-align: center;
+    width:170px
+}
+
+.col3 {
+    background-color:beige;
+    text-align: right;
+    width:170px
+}
+
+.hcol3 {
+    background-color:bisque;
+    text-align: center;
+    width:170px
+}
+
+

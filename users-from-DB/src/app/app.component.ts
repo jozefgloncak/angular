@@ -7,8 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   
-  showUsers : boolean = false;
-  toggleDisplayUsers() {
-    this.showUsers = !this.showUsers;
+  showUsersInTable : boolean = false;
+  showUsersInOrdinaryTable : boolean = false;
+
+  hideAllSubComponents() {
+    this.showUsersInTable = false;
+    this.showUsersInOrdinaryTable = false;
+
   }
 }
