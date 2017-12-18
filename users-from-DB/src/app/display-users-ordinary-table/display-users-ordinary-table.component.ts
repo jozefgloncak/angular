@@ -20,7 +20,8 @@ export class DisplayUsersOrdinaryTableComponent implements OnInit {
   }
 
   getUsers() {
-    this.userService.getUser().subscribe(users => this.users = users);
+    this.userService.getUserAll();
+    // this.userService.getUser().subscribe(users => this.users = users);
   }
 
 }

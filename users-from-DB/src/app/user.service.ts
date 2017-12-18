@@ -11,6 +11,8 @@ const httpOptions = {
 export class UserService {
   private userUrl = 'http://192.168.56.2:3000/users';
 
+  public users_data : User[];
+
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<User[]> {
@@ -19,6 +21,14 @@ export class UserService {
 
   saveUser(user: User):  Observable<User[]> {
     return this.http.post<User[]>(this.userUrl, user, httpOptions)
+  }
+
+  getUserAll() {
+    this.getUser().subscribe(users => this.users_data = users)
+  }
+
+  saveUserAll(user:User) {
+    this.saveUser(user).subscribe(hero => this.getUserAll());
   }
 
 }

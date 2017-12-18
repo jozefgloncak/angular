@@ -31,7 +31,7 @@ export class NewUserComponent implements OnInit {
       this.user.name = this.name;
       this.user.username = this.username
     }
-    this.userService.saveUser(this.user).subscribe();
+    this.userService.saveUserAll(this.user);
   }
 
 }
