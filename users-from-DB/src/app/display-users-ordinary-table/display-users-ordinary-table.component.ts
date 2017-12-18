@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { UserDataSource } from '../UserDataSource';
 import { User } from '../user';
-
 
 @Component({
   selector: 'app-display-users-ordinary-table',
@@ -21,7 +19,6 @@ export class DisplayUsersOrdinaryTableComponent implements OnInit {
 
   getUsers() {
     this.userService.getUserAll();
-    // this.userService.getUser().subscribe(users => this.users = users);
   }
 
 }

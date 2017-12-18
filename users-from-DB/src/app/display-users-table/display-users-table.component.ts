@@ -5,7 +5,6 @@ import { DataSource } from '@angular/cdk/collections';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
-import { UserDataSource } from '../UserDataSource';
 
 
 @Component({
@@ -15,12 +14,11 @@ import { UserDataSource } from '../UserDataSource';
 })
 export class DisplayUsersTableComponent implements OnInit {
 
-  myDataSource : UserDataSource;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.myDataSource = new UserDataSource(this.userService);
+    this.userService.getUserAll();
   }
 }
 
