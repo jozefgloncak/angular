@@ -15,11 +15,12 @@ import { UserDataSource } from '../UserDataSource';
 })
 export class DisplayUsersTableComponent implements OnInit {
 
-  myDataSource = new UserDataSource(this.userService);
+  myDataSource : UserDataSource;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.myDataSource = new UserDataSource(this.userService);
   }
 }
 

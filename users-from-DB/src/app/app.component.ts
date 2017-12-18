@@ -9,10 +9,11 @@ export class AppComponent {
   
   showUsersInTable : boolean = false;
   showUsersInOrdinaryTable : boolean = false;
+  showNewUser : boolean = false;
 
   hideAllSubComponents() {
     this.showUsersInTable = false;
     this.showUsersInOrdinaryTable = false;
-
+    this.showNewUser = false;
   }
 }

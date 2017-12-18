@@ -3,14 +3,15 @@
 
 <mat-menu #menu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="display">Display</button>
-  <button mat-menu-item>New</button>
+  <button mat-menu-item (click)="showNewUser=true">New</button>
 </mat-menu>
 
 <mat-menu #display="matMenu">
     <button mat-menu-item (click)="showUsersInTable=true">as table</button>
     <button mat-menu-item (click)="showUsersInOrdinaryTable=true">as oridinary table</button>
 </mat-menu>      
-
-<!-- <app-display-users-table></app-display-users-table> -->
+<br />
+<!-- views enabling|disabling -->
 <app-display-users-table *ngIf="showUsersInTable==true"></app-display-users-table>
 <app-display-users-ordinary-table *ngIf="showUsersInOrdinaryTable==true"></app-display-users-ordinary-table>
+<app-new-user *ngIf="showNewUser==true"></app-new-user>

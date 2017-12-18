@@ -3,6 +3,9 @@ import { User } from './user';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class UserService {
@@ -12,6 +15,10 @@ export class UserService {
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl);
+  }
+
+  saveUser(user: User):  Observable<User[]> {
+    return this.http.post<User[]>(this.userUrl, user, httpOptions)
   }
 
 }

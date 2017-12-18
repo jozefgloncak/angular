@@ -1,0 +1,14 @@
+    <mat-form-field>
+      Name: <input matInput placeholder="name" [(ngModel)]="name" >
+    </mat-form-field>
+  
+    <mat-form-field>
+      Username: <input matInput placeholder="username" [(ngModel)]="username" >
+    </mat-form-field>
+    <br />
+    <button mat-button (click)="save_user()">Save</button>
+      
+  <br />
+    {{user.name}}
+  <br />
+    {{user.username}}
