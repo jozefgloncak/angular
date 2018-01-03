@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { Sort } from '@angular/material';
 
 @Component({
   selector: 'app-display-users-ordinary-table',
@@ -14,10 +15,6 @@ export class DisplayUsersOrdinaryTableComponent implements OnInit {
   constructor(private userService: UserService) {}
   
   ngOnInit() {
-    this.getUsers();
-  }
-
-  getUsers() {
     this.userService.getUserAll();
   }
 
