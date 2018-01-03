@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { User } from './user';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MessageService } from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,8 +15,10 @@ export class UserService {
 
   users_dataSource : MatTableDataSource<User>;
   public users_data : User[];
+  paginator: MatPaginator;
+  sort: MatSort;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private msgLog:MessageService) { }
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl);
@@ -25,16 +28,38 @@ export class UserService {
     return this.http.post<User[]>(this.userUrl, user, httpOptions)
   }
 
-  getUserAll() {
+  getUserAll(paginator?: MatPaginator, sort?:MatSort) {
     this.getUser().subscribe(users => {
       this.users_data = users;
       this.users_dataSource = new MatTableDataSource();
       this.users_dataSource.data = this.users_data;
+      if (paginator) {
+        this.msgLog.add("call getUserAll() with parameter paginator")
+        this.users_dataSource.paginator = paginator;
+      } else {
+        this.msgLog.add("call getUserAll() with default paginator")
+        this.users_dataSource.paginator = this.paginator;
+      }
+      if (sort) {
+        this.msgLog.add("call getUserAll() with parameter sort")
+        this.users_dataSource.sort = sort;
+      } else {
+        this.msgLog.add("call getUserAll() with default sort")
+        this.users_dataSource.sort = this.sort;
+      }
     });
   }
 
   saveUserAll(user:User) {
     this.saveUser(user).subscribe(hero => this.getUserAll());
+  }
+
+  setPaginator(paginator: MatPaginator) {
+    this.paginator = paginator;
+  }
+
+  setSort(sort: MatSort) {
+    this.sort = sort;
   }
 
 }
