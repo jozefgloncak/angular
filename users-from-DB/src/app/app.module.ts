@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule, MatCheckboxModule, MatSortModule} from '@angular/material';
+import { MatButtonModule
+        ,MatCheckboxModule
+        ,MatSortModule
+        ,MatDatepickerModule
+        ,MatNativeDateModule
+      } from '@angular/material';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatHeaderCell } from '@angular/material/table';
 import { MatCell } from '@angular/material/table';
@@ -46,7 +52,9 @@ import { MessageComponent } from './message/message.component';
     MatInputModule,
     FormsModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatButtonModule,
@@ -56,7 +64,9 @@ import { MessageComponent } from './message/message.component';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [UserService, MessageService],
   bootstrap: [AppComponent]

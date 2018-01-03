@@ -6,9 +6,20 @@
       Username: <input matInput placeholder="username" [(ngModel)]="username" >
     </mat-form-field>
     <br />
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker3" placeholder="Value binding" [(ngModel)]="date.value" (dateChange)="handleChange($event)"
+      (dateInput)="handleInput($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3 [disabled]="false" [startAt]="startAt" [startView]="startView" (closed)="handleCloseDatePicker()"
+      (opened)="handleOpenedDatePicker()"></mat-datepicker>
+    </mat-form-field>
+    <br />
+
     <button mat-button (click)="save_user()">Save</button>
       
   <br />
     {{user.name}}
   <br />
     {{user.username}}
+  <br />
+    {{date.value}}
