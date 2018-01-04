@@ -43,4 +43,19 @@ table {
     width:170px
 }
 
+.element-name {
+    font-weight: bold;
+    
+}
+
+.element {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.element-value {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 

@@ -1,0 +1,12 @@
+<div class="element-name"><h1>Checkbox</h1></div>
+<br />
+<div class="element">element:</div>
+<mat-checkbox (change)="handleCheckBoxChange($event)" [(ngModel)]="checked" labelPosition="before">colorize dummy text</mat-checkbox>
+<div [class]="classForDummyText">dummy text</div>
+<!-- or - without using handleCheckBoxChange($event) method -->
+<!-- <div [class]="checked == true ? 'dummy-text' : ''">dummy text</div> -->
+
+<br />
+<div class="element-value">binded value:</div>
+{{checked}}
+

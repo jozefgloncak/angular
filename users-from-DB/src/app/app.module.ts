@@ -28,6 +28,10 @@ import {FormsModule} from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { TableSortingExampleComponent } from './table-sorting-example/table-sorting-example.component';
 import { MessageComponent } from './message/message.component';
+import { FormElementDatePickerComponent } from './form-element-date-picker/form-element-date-picker.component';
+import { FormElementComponent } from './form-element/form-element.component';
+import { FormElementCheckboxComponent } from './form-element-checkbox/form-element-checkbox.component';
+import { FormElementInputComponent } from './form-element-input/form-element-input.component';
 
 
 
@@ -41,6 +45,10 @@ import { MessageComponent } from './message/message.component';
     NewUserComponent,
     TableSortingExampleComponent,
     MessageComponent,
+    FormElementDatePickerComponent,
+    FormElementComponent,
+    FormElementCheckboxComponent,
+    FormElementInputComponent,
     // FormFieldCustomControlExample
   ],
   imports: [
@@ -54,7 +62,8 @@ import { MessageComponent } from './message/message.component';
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   exports: [
     MatButtonModule,
@@ -66,7 +75,8 @@ import { MessageComponent } from './message/message.component';
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   providers: [UserService, MessageService],
   bootstrap: [AppComponent]

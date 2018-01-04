@@ -1,0 +1,13 @@
+<div class="element-name"><h1>Date picker</h1></div>
+<div class="element">element:</div>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker3" placeholder="Value binding" [(ngModel)]="date.value" (dateChange)="handleChange($event)"
+  (dateInput)="handleInput($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3 [disabled]="false" [startAt]="startAt" [startView]="startView" (closed)="handleCloseDatePicker()"
+  (opened)="handleOpenedDatePicker()"></mat-datepicker>
+</mat-form-field>
+
+<br />
+<div class="element-value">binded value:</div>
+{{date.value}}

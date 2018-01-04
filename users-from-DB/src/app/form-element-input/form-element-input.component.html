@@ -1,0 +1,7 @@
+<div class="element-name"><h1>Input</h1></div>
+<div class="element">element:</div>
+<mat-form-field [floatLabel]="floatLabelType">
+    <input matInput="matInput" placeholder="Name" required="true" [(ngModel)]="inputValue">
+</mat-form-field>
+<div class="element-value">binded value:</div>
+{{inputValue}}
