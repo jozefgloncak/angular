@@ -33,6 +33,7 @@ import { FormElementComponent } from './form-element/form-element.component';
 import { FormElementCheckboxComponent } from './form-element-checkbox/form-element-checkbox.component';
 import { FormElementInputComponent } from './form-element-input/form-element-input.component';
 import { DemoNgClassComponent } from './demo-ng-class/demo-ng-class.component';
+import { DemoNgStyleComponent } from './demo-ng-style/demo-ng-style.component';
 
 
 
@@ -51,6 +52,7 @@ import { DemoNgClassComponent } from './demo-ng-class/demo-ng-class.component';
     FormElementCheckboxComponent,
     FormElementInputComponent,
     DemoNgClassComponent,
+    DemoNgStyleComponent,
     // FormFieldCustomControlExample
   ],
   imports: [

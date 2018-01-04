@@ -1,6 +1,7 @@
 <button mat-button  [matMenuTriggerFor]="menu">Users</button>
 <button mat-button  (click)="hideAllSubComponents(); showDemoForm=true">Demo form</button>
 <button mat-button  (click)="hideAllSubComponents(); showNgClassDemo=true">Demo NgClass</button>
+<button mat-button  (click)="hideAllSubComponents(); showNgStyleDemo=true">Demo NgStyle</button>
 <button mat-button  (click)="hideAllSubComponents()">Hide all</button>
 <app-messages></app-messages>
 <mat-menu #menu="matMenu">
@@ -19,3 +20,4 @@
 <app-new-user *ngIf="showNewUser==true"></app-new-user>
 <app-form-element *ngIf="showDemoForm==true"></app-form-element>
 <app-demo-ng-class *ngIf="showNgClassDemo==true"></app-demo-ng-class>
+<app-demo-ng-style *ngIf="showNgStyleDemo==true"></app-demo-ng-style>

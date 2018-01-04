@@ -12,6 +12,7 @@ export class AppComponent {
   showNewUser : boolean = false;
   showDemoForm : boolean = false;
   showNgClassDemo : boolean = false;
+  showNgStyleDemo : boolean = false;
 
   hideAllSubComponents() {
     this.showUsersInTable = false;
@@ -19,5 +20,6 @@ export class AppComponent {
     this.showNewUser = false;
     this.showDemoForm = false;
     this.showNgClassDemo = false;
+    this.showNgStyleDemo = false;
   }
 }
