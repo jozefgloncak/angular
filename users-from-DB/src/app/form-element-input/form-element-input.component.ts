@@ -14,9 +14,6 @@ export class FormElementInputComponent implements OnInit {
   @Input()
   inputValue:string;
 
-  matInput : MatInput;
-
-
   floatLabelType : FloatLabelType = "always";
 
   constructor() { }

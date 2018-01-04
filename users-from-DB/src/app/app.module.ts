@@ -32,6 +32,7 @@ import { FormElementDatePickerComponent } from './form-element-date-picker/form-
 import { FormElementComponent } from './form-element/form-element.component';
 import { FormElementCheckboxComponent } from './form-element-checkbox/form-element-checkbox.component';
 import { FormElementInputComponent } from './form-element-input/form-element-input.component';
+import { DemoNgClassComponent } from './demo-ng-class/demo-ng-class.component';
 
 
 
@@ -49,6 +50,7 @@ import { FormElementInputComponent } from './form-element-input/form-element-inp
     FormElementComponent,
     FormElementCheckboxComponent,
     FormElementInputComponent,
+    DemoNgClassComponent,
     // FormFieldCustomControlExample
   ],
   imports: [
