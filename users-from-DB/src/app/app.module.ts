@@ -34,6 +34,9 @@ import { FormElementCheckboxComponent } from './form-element-checkbox/form-eleme
 import { FormElementInputComponent } from './form-element-input/form-element-input.component';
 import { DemoNgClassComponent } from './demo-ng-class/demo-ng-class.component';
 import { DemoNgStyleComponent } from './demo-ng-style/demo-ng-style.component';
+import { Demo2WayBindingInnerComponent } from './demo-2-way-binding-inner/demo-2-way-binding-inner.component';import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo-2-way-binding-outter.component';
+import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo-2-way-binding-outter.component';
+
 
 
 
@@ -53,6 +56,8 @@ import { DemoNgStyleComponent } from './demo-ng-style/demo-ng-style.component';
     FormElementInputComponent,
     DemoNgClassComponent,
     DemoNgStyleComponent,
+    Demo2WayBindingInnerComponent,
+    Demo2WayBindingOutterComponent
     // FormFieldCustomControlExample
   ],
   imports: [

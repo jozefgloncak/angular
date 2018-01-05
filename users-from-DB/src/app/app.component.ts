@@ -13,6 +13,7 @@ export class AppComponent {
   showDemoForm : boolean = false;
   showNgClassDemo : boolean = false;
   showNgStyleDemo : boolean = false;
+  show2WayBindingDemo : boolean = false;
 
   hideAllSubComponents() {
     this.showUsersInTable = false;
@@ -21,5 +22,6 @@ export class AppComponent {
     this.showDemoForm = false;
     this.showNgClassDemo = false;
     this.showNgStyleDemo = false;
+    this.show2WayBindingDemo = false;
   }
 }

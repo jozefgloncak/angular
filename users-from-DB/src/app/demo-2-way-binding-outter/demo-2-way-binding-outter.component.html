@@ -1,0 +1,4 @@
+<app-demo-2-way-binding-inner [size]="initialSize" (sizeChange)="sizeChangedWithLog($event)" (event2)="handleEvent2($event)"></app-demo-2-way-binding-inner>
+<!-- or - if you do not want to log receiving of event -->
+<!-- <app-demo-2-way-binding-inner [(size)]="initialSize"></app-demo-2-way-binding-inner> -->
+{{initialSize}}
