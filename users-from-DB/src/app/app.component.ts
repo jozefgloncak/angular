@@ -14,6 +14,8 @@ export class AppComponent {
   showNgClassDemo : boolean = false;
   showNgStyleDemo : boolean = false;
   show2WayBindingDemo : boolean = false;
+  showHighlightDirectiveDemo : boolean = false;
+  showPipesDemo : boolean = false;
 
   hideAllSubComponents() {
     this.showUsersInTable = false;
@@ -23,5 +25,7 @@ export class AppComponent {
     this.showNgClassDemo = false;
     this.showNgStyleDemo = false;
     this.show2WayBindingDemo = false;
+    this.showHighlightDirectiveDemo = false;
+    this.showPipesDemo = false;
   }
 }

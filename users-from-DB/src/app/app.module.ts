@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule
@@ -36,6 +37,8 @@ import { DemoNgClassComponent } from './demo-ng-class/demo-ng-class.component';
 import { DemoNgStyleComponent } from './demo-ng-style/demo-ng-style.component';
 import { Demo2WayBindingInnerComponent } from './demo-2-way-binding-inner/demo-2-way-binding-inner.component';import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo-2-way-binding-outter.component';
 import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo-2-way-binding-outter.component';
+import { HighlightDirective } from './highlight.directive';
+import { PipesComponent } from './pipes/pipes.component';
 
 
 
@@ -57,7 +60,9 @@ import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo
     DemoNgClassComponent,
     DemoNgStyleComponent,
     Demo2WayBindingInnerComponent,
-    Demo2WayBindingOutterComponent
+    Demo2WayBindingOutterComponent,
+    HighlightDirective,
+    PipesComponent
     // FormFieldCustomControlExample
   ],
   imports: [
