@@ -30,5 +30,6 @@
   <div appHighlight [appHighlight]="'yellow'">highlight in div</div>
   <span [appHighlight]="yellow">highlight in span</span>
 </div>
-<app-pipes ></app-pipes>
+<app-pipes *ngIf="showPipesDemo==true" ></app-pipes>
+<app-animate></app-animate>
 <!-- <app-pipes *ngIf="showPipesDemo==true"></app-pipes> -->
