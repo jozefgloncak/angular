@@ -6,7 +6,7 @@
 <button mat-button  (click)="hideAllSubComponents(); showHighlightDirectiveDemo=true">Demo Highlight directive</button>
 <button mat-button  (click)="hideAllSubComponents(); showPipesDemo=true">Demo Pipes</button>
 <button mat-button  (click)="hideAllSubComponents()">Hide all</button>
-<app-messages></app-messages>
+
 <mat-menu #menu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="display">Display</button>
   <button mat-menu-item (click)="showNewUser=true">New</button>
@@ -31,5 +31,7 @@
   <span [appHighlight]="yellow">highlight in span</span>
 </div>
 <app-pipes *ngIf="showPipesDemo==true" ></app-pipes>
-<app-animate></app-animate>
+<app-animate *ngIf="showAnimateDemo"></app-animate>
+<app-forms></app-forms>
+<app-messages></app-messages>
 <!-- <app-pipes *ngIf="showPipesDemo==true"></app-pipes> -->

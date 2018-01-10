@@ -16,6 +16,7 @@ export class AppComponent {
   show2WayBindingDemo : boolean = false;
   showHighlightDirectiveDemo : boolean = false;
   showPipesDemo : boolean = false;
+  showAnimateDemo : boolean = false;
 
   hideAllSubComponents() {
     this.showUsersInTable = false;
@@ -27,5 +28,6 @@ export class AppComponent {
     this.show2WayBindingDemo = false;
     this.showHighlightDirectiveDemo = false;
     this.showPipesDemo = false;
+    this.showAnimateDemo = false;
   }
 }

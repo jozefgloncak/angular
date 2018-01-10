@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MessageService } from '../message.service';
  
 @Component({
@@ -8,6 +8,9 @@ import { MessageService } from '../message.service';
 })
 export class MessageComponent implements OnInit {
  
+  @Input()
+  wrapLines = false;
+
   constructor(public messageService: MessageService) {}
  
   ngOnInit() {

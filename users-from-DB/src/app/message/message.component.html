@@ -1,9 +1,15 @@
 <h2>Messages</h2>
+wrap lines: <input type="checkbox" [(ngModel)]="wrapLines">
 <div>
 <!-- <div *ngIf="messageService.messages.length"> -->
 
   <button class="clear"
           (click)="messageService.clear()">clear</button>
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+  <div *ngIf="!wrapLines">
+    <span *ngFor='let message of messageService.messages; let odd=odd' [class.odd]="odd"> {{message}} </span>
+  </div>
+  <div *ngIf="wrapLines">
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+  </div>
 
 </div>

@@ -39,6 +39,7 @@ import { Demo2WayBindingOutterComponent } from './demo-2-way-binding-outter/demo
 import { HighlightDirective } from './highlight.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { AnimateComponent } from './animate/animate.component';
+import { FormsComponent } from './forms/forms.component';
 
 
 
@@ -63,7 +64,8 @@ import { AnimateComponent } from './animate/animate.component';
     Demo2WayBindingOutterComponent,
     HighlightDirective,
     PipesComponent,
-    AnimateComponent
+    AnimateComponent,
+    FormsComponent
     // FormFieldCustomControlExample
   ],
   imports: [
