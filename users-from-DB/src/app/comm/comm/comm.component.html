@@ -1,0 +1,36 @@
+<div>
+<!-- <button mat-button  [matMenuTriggerFor]="menu">Users</button> -->
+<button mat-button  (click)="hideAllSubComponents(); showDemoForm=true">Demo form</button>
+<button mat-button  (click)="hideAllSubComponents(); showNgClassDemo=true">Demo NgClass</button>
+<button mat-button  (click)="hideAllSubComponents(); showNgStyleDemo=true">Demo NgStyle</button>
+<button mat-button  (click)="hideAllSubComponents(); show2WayBindingDemo=true">Demo 2WayBinding</button>
+<button mat-button  (click)="hideAllSubComponents(); showHighlightDirectiveDemo=true">Demo Highlight directive</button>
+<button mat-button  (click)="hideAllSubComponents(); showPipesDemo=true">Demo Pipes</button>
+<button mat-button  (click)="hideAllSubComponents(); showFormsDemo=true">Demo Forms</button>
+<button mat-button  (click)="hideAllSubComponents()">Hide all</button>
+
+<!-- <mat-menu #menu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="display">Display</button>
+  <button mat-menu-item (click)="showNewUser=true">New</button>
+</mat-menu>
+
+<mat-menu #display="matMenu">
+    <button mat-menu-item (click)="showUsersInTable=true">as table</button>
+    <button mat-menu-item (click)="showUsersInOrdinaryTable=true">as oridinary table</button>
+</mat-menu>       -->
+<br />
+<!-- views enabling|disabling -->
+<app-form-element *ngIf="showDemoForm==true"></app-form-element>
+<app-demo-ng-class *ngIf="showNgClassDemo==true"></app-demo-ng-class>
+<app-demo-ng-style *ngIf="showNgStyleDemo==true"></app-demo-ng-style>
+<app-demo-2-way-binding-outter *ngIf="show2WayBindingDemo==true"></app-demo-2-way-binding-outter>
+<div *ngIf="showHighlightDirectiveDemo==true">demo highlight directive (directive force element to set background color) <!-- from highlight.directive.ts -->
+  <p appHighlight appHighlight="yellow">highlight in paragraph</p>
+  <div appHighlight [appHighlight]="'yellow'">highlight in div</div>
+  <span [appHighlight]="yellow">highlight in span</span>
+</div>
+<app-pipes *ngIf="showPipesDemo==true" ></app-pipes>
+<app-animate *ngIf="showAnimateDemo"></app-animate>
+<app-forms *ngIf="showFormsDemo"></app-forms>
+<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,14 @@
+<div table>
+  <table border=1 matSort (matSortChange)="userService.sortData($event)">
+    <div table-head>
+      <tr>        
+        <th class="hcol1" mat-sort-header="id">id</th>
+        <th class="hcol2" mat-sort-header="name">name</th>
+        <th class="hcol3" mat-sort-header="username">usermane</th>
+      </tr>
+    </div>
+    <div table-body>
+        <app-ordinary-table-row-demo [usersInRow]="userService.sorted_users_data"></app-ordinary-table-row-demo>
+    </div>
+  </table>
+</div>
