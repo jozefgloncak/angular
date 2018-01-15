@@ -30,6 +30,10 @@ export class MaterialTableDemoComponent implements OnInit {
     this.userService.setSort(this.sort);
     this.msgLog.add("call: ngOnInit()")
   }
+
+  addUser() {
+    this.msgLog.add("call addUser()");
+  }
 }
 
 

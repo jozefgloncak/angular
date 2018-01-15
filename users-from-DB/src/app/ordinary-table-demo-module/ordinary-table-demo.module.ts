@@ -5,13 +5,15 @@ import { OrdinaryTableDemoRoutingModule } from './ordinary-table-demo-routing.mo
 import { OrdinaryTableDemoComponent } from './ordinary-table-demo/ordinary-table-demo.component';
 import { OrdinaryTableRowDemoComponent } from './ordinary-table-row-demo/ordinary-table-row-demo.component';
 
-import { MatSortModule } from '@angular/material';
-
+import { MatSortModule
+  ,MatButtonModule
+  } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     MatSortModule,
+    MatButtonModule,
     OrdinaryTableDemoRoutingModule,
   ],
   declarations: [
