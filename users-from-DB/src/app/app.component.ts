@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  showSidenav : boolean = true;
 
+  constructor(private msgLog:MessageService) {
+
+  }
+
+  invert() {
+    this.msgLog.add("showSidenav value: "+this.showSidenav);
+  }
 }

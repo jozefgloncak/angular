@@ -10,9 +10,16 @@ import { UserService } from './user.service';
 import { AppRoutingModule } from './app-routing.modules';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
-import { MatListModule, MatDialogModule } from '@angular/material';
+import { MatListModule
+  , MatDialogModule
+  , MatSidenavModule
+  , MatRadioModule,
+  MatCheckboxModule
+ } from '@angular/material';
 import { ListTableDialogDemoComponent } from './new-user-dialog-module/new-user-dialog/new-user-dialog.component';
-import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.module'
+import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ContextComponent } from './context/context.component'
 
 
 
@@ -21,8 +28,10 @@ import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.mo
   , MatListModule
   , MatDialogModule
   , NewUserDialogModule
+  , MatCheckboxModule
+  , MatSidenavModule
  ],
-  declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent],
+  declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent, NavigationComponent, ContextComponent],
 
   providers: [MessageService, UserService],
   bootstrap: [AppComponent],

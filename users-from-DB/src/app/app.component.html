@@ -1,13 +1,16 @@
-<!-- <nav>
-    <div><a routerLink='' routerLinkActive="active">all</a></div>
-    <div><a routerLink='mat-table'>material table</a></div>
-    <!-- <div><a routerLink='ord-table'>ordinary table</a></div> -->
-    <!-- <div><a routerLink='lst-table'>list table</a></div> -->
-<!-- </nav> -->
-<mat-nav-list>
-    <mat-list-item><a matLine routerLink='' routerLinkActive="active">all</a></mat-list-item>
-    <mat-list-item><a routerLink='mat-table'>material table</a></mat-list-item>
-    <mat-list-item><a routerLink='lst-table'>list table</a></mat-list-item>
-</mat-nav-list>
-<router-outlet></router-outlet>
-<app-messages [wrapLines]="true"></app-messages>
+<mat-checkbox [(ngModel)]="showSidenav">show side bar</mat-checkbox>
+
+<div *ngIf="!showSidenav">
+    <app-navigation></app-navigation>          
+    <app-context></app-context>    
+</div>
+<div *ngIf="showSidenav">
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened="true">
+            <app-navigation></app-navigation>                  
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-context></app-context>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
