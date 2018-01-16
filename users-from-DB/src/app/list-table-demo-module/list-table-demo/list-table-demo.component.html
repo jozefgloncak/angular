@@ -1,0 +1,15 @@
+<button mat-button (click)="openDialog()">Add user</button>
+<mat-card>
+  <mat-card-title>User list via material multiitem list.</mat-card-title>
+  <mat-card-content>
+    <mat-list dense>
+      <mat-list-item *ngFor="let item of items">
+        <h3 matLine>{{item.name}}</h3>
+        <p matLine>
+          <span class="matList3ndLevel">{{item.id}}</span>
+          <span class="matList2ndLevel">{{item.username}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

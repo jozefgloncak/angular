@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { MaterialTableDemoComponent } from './material-table-demo-module/material-table-demo/material-table-demo.component';
-// import { MaterialTableDemoModule } from './material-table-demo-module/material-table-demo.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
     { path: 'mat-table', loadChildren: 'app/material-table-demo-module/material-table-demo.module#MaterialTableDemoModule' },
     { path: 'ord-table', loadChildren: 'app/ordinary-table-demo-module/ordinary-table-demo.module#OrdinaryTableDemoModule' },
+    { path: 'lst-table', loadChildren: 'app/list-table-demo-module/list-table-demo.module#ListTableDemoModule' },
     { path: '', redirectTo: 'default', pathMatch: 'full' },
     { path: 'default', loadChildren: 'app/comm/comm.module#CommModule' },
   ];

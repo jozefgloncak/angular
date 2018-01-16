@@ -27,8 +27,8 @@ export class UserService {
     return this.http.get<User[]>(this.userUrl);
   }
 
-  saveUser(user: User):  Observable<User[]> {
-    return this.http.post<User[]>(this.userUrl, user, httpOptions)
+  saveUser(user: User):  Observable<User> {
+    return this.http.post<User>(this.userUrl, user, httpOptions)
   }
 
   getUserAll(paginator?: MatPaginator, sort?:MatSort) {

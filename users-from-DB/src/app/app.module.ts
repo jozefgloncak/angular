@@ -10,14 +10,19 @@ import { UserService } from './user.service';
 import { AppRoutingModule } from './app-routing.modules';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
-
+import { MatListModule, MatDialogModule } from '@angular/material';
+import { ListTableDialogDemoComponent } from './list-table-dialog-demo/list-table-dialog-demo.component';
 
 
 @NgModule({
-  imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, FormsModule ],
-  declarations: [AppComponent, MessageComponent],
+  imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, FormsModule
+  , MatListModule
+  , MatDialogModule
+ ],
+  declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent],
 
   providers: [MessageService, UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ListTableDialogDemoComponent]
 })
 export class AppModule { }
