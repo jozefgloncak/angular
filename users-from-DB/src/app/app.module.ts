@@ -11,13 +11,16 @@ import { AppRoutingModule } from './app-routing.modules';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
 import { MatListModule, MatDialogModule } from '@angular/material';
-import { ListTableDialogDemoComponent } from './list-table-dialog-demo/list-table-dialog-demo.component';
+import { ListTableDialogDemoComponent } from './new-user-dialog-module/new-user-dialog/new-user-dialog.component';
+import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.module'
+
 
 
 @NgModule({
   imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, FormsModule
   , MatListModule
   , MatDialogModule
+  , NewUserDialogModule
  ],
   declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent],
 

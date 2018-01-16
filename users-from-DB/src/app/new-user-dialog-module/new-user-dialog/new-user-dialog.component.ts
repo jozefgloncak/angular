@@ -1,11 +1,11 @@
 import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { User } from '../user';
+import { User } from '../../user';
 
 @Component({
-  selector: 'app-list-table-dialog-demo',
-  templateUrl: './list-table-dialog-demo.component.html',
-  styleUrls: ['./list-table-dialog-demo.component.css']
+  selector: 'app-new-user-dialog',
+  templateUrl: './new-user-dialog.component.html',
+  styleUrls: ['./new-user-dialog.component.css']
 })
 export class ListTableDialogDemoComponent {
 

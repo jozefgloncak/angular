@@ -3,7 +3,7 @@ import { MessageService } from '../../message.service';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { ListTableDialogDemoComponent } from '../../list-table-dialog-demo/list-table-dialog-demo.component';
+import { ListTableDialogDemoComponent } from '../../new-user-dialog-module/new-user-dialog/new-user-dialog.component';
 
 @Component({
   selector: 'app-list-table-demo',

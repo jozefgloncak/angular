@@ -11,14 +11,14 @@ import { MatSortModule
 
 
 
+
 @NgModule({
   imports: [
     MaterialTableDemoRoutingModule,
     MatPaginatorModule,
     MatSortModule,
     MatButtonModule,
-
-    MatTableModule
+    MatTableModule,
   ],
   declarations: [
     MaterialTableDemoComponent
