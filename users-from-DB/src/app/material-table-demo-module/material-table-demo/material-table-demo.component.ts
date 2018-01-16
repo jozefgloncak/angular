@@ -38,9 +38,6 @@ export class MaterialTableDemoComponent implements OnInit {
 
   openDialog(): void {
     this.msgLog.add("call addUser()");
-    let config = new MatDialogConfig<User>();
-    config.width = '250px';
-    config.data = this.newUser;
     let dialogRef : MatDialogRef<ListTableDialogDemoComponent, User>;
     dialogRef = this.dialog.open<ListTableDialogDemoComponent>(ListTableDialogDemoComponent, 
     {
@@ -54,7 +51,6 @@ export class MaterialTableDemoComponent implements OnInit {
         this.msgLog.add('new name: '+result.name+ ' and username: '+result.username);
         this.userService.saveUserAll(result);
       }
-      // this.userService.saveUser(result).subscribe(user => {this.items.push(user)});
     });
   }
 }
