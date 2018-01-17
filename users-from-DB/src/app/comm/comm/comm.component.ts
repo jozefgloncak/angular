@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
 })
 export class CommComponent {
 
+  
+  formTitle = 'Demo form';
+  ngClassTitle = 'Demo NgClass';
+  ngStyleTitle = 'Demo NgStyle';
+  twoWayBindingTitle = 'Demo 2WayBinding';
+  highlightDirectiveTitle = 'Demo Highlight directive';
+  pipesTitle = 'Demo Pipes';
+  formsTitle = 'Demo Forms';
+  
+  noComponentTitle = 'no component';
+  selectedComponent : string = this.noComponentTitle;
+
   constructor() { }
 
   
@@ -22,7 +34,7 @@ export class CommComponent {
   showAnimateDemo : boolean = false;
   showFormsDemo : boolean = false;
 
-  hideAllSubComponents() {
+  hideAllSubComponents(selectedComponent : string) {
     this.showUsersInTable = false;
     this.showUsersInOrdinaryTable = false;
     this.showNewUser = false;
@@ -34,5 +46,9 @@ export class CommComponent {
     this.showPipesDemo = false;
     this.showAnimateDemo = false;
     this.showFormsDemo = false;
+
+    this.selectedComponent = selectedComponent;
   }
+
+  
 }

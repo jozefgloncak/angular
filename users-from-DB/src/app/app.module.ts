@@ -16,6 +16,7 @@ import { MatListModule
   , MatRadioModule
   , MatCheckboxModule
   , MatTabsModule
+  , MatSlideToggleModule
  } from '@angular/material';
 import { ListTableDialogDemoComponent } from './new-user-dialog-module/new-user-dialog/new-user-dialog.component';
 import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.module';
@@ -32,6 +33,7 @@ import { ContextComponent } from './context/context.component';
   , MatCheckboxModule
   , MatSidenavModule
   , MatTabsModule
+  , MatSlideToggleModule
  ],
   declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent, NavigationComponent, ContextComponent],
 

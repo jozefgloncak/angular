@@ -18,7 +18,7 @@ import { UserService } from '../user.service';
 // import { MessageService } from '../message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatExpansionModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 // import { MessageComponent } from '../message/message.component';
 import { FormElementDatePickerComponent } from './form-element-date-picker/form-element-date-picker.component';
@@ -63,6 +63,7 @@ import { FormsComponent } from './forms/forms.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    MatExpansionModule,
     CommRoutingModule,
     CommonModule
 
