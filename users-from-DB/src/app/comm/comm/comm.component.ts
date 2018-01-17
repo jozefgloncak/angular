@@ -15,7 +15,7 @@ export class CommComponent {
   highlightDirectiveTitle = 'Demo Highlight directive';
   pipesTitle = 'Demo Pipes';
   formsTitle = 'Demo Forms';
-  
+  iconsTitle = 'Demo Icons';
   noComponentTitle = 'no component';
   selectedComponent : string = this.noComponentTitle;
 
@@ -33,6 +33,7 @@ export class CommComponent {
   showPipesDemo : boolean = false;
   showAnimateDemo : boolean = false;
   showFormsDemo : boolean = false;
+  showIconsDemo : boolean = false;
 
   hideAllSubComponents(selectedComponent : string) {
     this.showUsersInTable = false;
@@ -46,6 +47,7 @@ export class CommComponent {
     this.showPipesDemo = false;
     this.showAnimateDemo = false;
     this.showFormsDemo = false;
+    this.showIconsDemo = false;
 
     this.selectedComponent = selectedComponent;
   }

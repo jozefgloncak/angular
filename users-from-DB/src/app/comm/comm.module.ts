@@ -9,6 +9,7 @@ import { MatButtonModule
         ,MatSortModule
         ,MatDatepickerModule
         ,MatNativeDateModule
+        ,MatIconModule
       } from '@angular/material';
 
 import { MatHeaderCell } from '@angular/material/table';
@@ -33,6 +34,7 @@ import { HighlightDirective } from './highlight.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { AnimateComponent } from './animate/animate.component';
 import { FormsComponent } from './forms/forms.component';
+import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { FormsComponent } from './forms/forms.component';
     AnimateComponent,
     FormsComponent,
 
-    CommComponent
+    CommComponent,
+
+    IconsComponent
   ],
   imports: [
 
@@ -65,8 +69,8 @@ import { FormsComponent } from './forms/forms.component';
     MatCheckboxModule,
     MatExpansionModule,
     CommRoutingModule,
-    CommonModule
-
+    CommonModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule,

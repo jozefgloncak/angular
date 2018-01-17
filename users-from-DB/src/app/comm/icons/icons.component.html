@@ -1,0 +1,11 @@
+<a href="https://material.io/icons/">icon to text mapping</a>
+<table border="1">
+  <tr>
+    <th>icon name</th>
+    <th>icon</th>
+  </tr> 
+  <tr *ngFor="let icon of icons">
+    <td>{{icon}}</td>
+    <td><mat-icon>{{icon}}</mat-icon></td>
+  </tr>
+</table>

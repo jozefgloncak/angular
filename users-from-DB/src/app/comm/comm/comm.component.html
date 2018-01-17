@@ -7,6 +7,7 @@
 <button mat-button  (click)="hideAllSubComponents(highlightDirectiveTitle); showHighlightDirectiveDemo=true">{{highlightDirectiveTitle}}</button>
 <button mat-button  (click)="hideAllSubComponents(pipesTitle); showPipesDemo=true">{{pipesTitle}}</button>
 <button mat-button  (click)="hideAllSubComponents(formsTitle); showFormsDemo=true">{{formsTitle}}</button>
+<button mat-button  (click)="hideAllSubComponents(iconsTitle); showIconsDemo=true">{{iconsTitle}}</button>
 <button mat-button  (click)="hideAllSubComponents(noComponentTitle)">Hide all</button>
 
 <!-- <mat-menu #menu="matMenu">
@@ -20,6 +21,8 @@
 </mat-menu>       -->
 <br />
 <!-- views enabling|disabling -->
+
+
 <mat-expansion-panel [expanded]="true">
   <mat-expansion-panel-header>
     <mat-panel-title>
@@ -42,6 +45,7 @@
   <app-pipes *ngIf="showPipesDemo==true" ></app-pipes>
   <app-animate *ngIf="showAnimateDemo"></app-animate>
   <app-forms *ngIf="showFormsDemo"></app-forms>
+  <app-icons *ngIf="showIconsDemo"></app-icons>
 </mat-expansion-panel>
 
 <!-- <router-outlet></router-outlet> -->
