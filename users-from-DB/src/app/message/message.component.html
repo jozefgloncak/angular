@@ -2,14 +2,39 @@
 wrap lines: <input type="checkbox" [(ngModel)]="wrapLines">
 <div>
 <!-- <div *ngIf="messageService.messages.length"> -->
-
   <button class="clear"
           (click)="messageService.clear()">clear</button>
-  <div *ngIf="!wrapLines">
-    <span *ngFor='let message of messageService.messages; let odd=odd' [class.odd]="odd"> {{message}} </span>
-  </div>
-  <div *ngIf="wrapLines">
-    <div *ngFor='let message of messageService.messages'> {{message}} </div>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="info log">
+      <span *ngFor='let message of messageService.messages; let odd=odd'>
+        <span *ngIf="message.level==1">
+            <span *ngIf="!wrapLines">
+              <span [ngClass]="{'bold':true, 'odd':odd}">{{message.msg}}</span>
+            </span>
+        </span>
+      </span>
+      <span *ngFor='let message of messageService.messages;'>
+        <span *ngIf="message.level==1">
+            <span *ngIf="wrapLines">
+              <div [ngClass]="{'bold':true}">{{message.msg}}</div>
+            </span>
+        </span>
+      </span>
+    </mat-tab>
+    <mat-tab label="full log">
+      <span *ngIf="!wrapLines">
+        <span *ngFor='let message of messageService.messages; let odd=odd'>
+          <span *ngIf="message.level==1" [ngClass]="{'bold':true, 'odd':odd}">{{message.msg}}</span>
+          <span *ngIf="message.level!=1" [ngClass]="{'odd':odd}">{{message.msg}}</span>
+        </span>
+      </span>
+      <div *ngIf="wrapLines">
+        <div *ngFor='let message of messageService.messages'>
+          <span *ngIf="message.level==1" [ngClass]="{'bold':true}">{{message.msg}}</span>
+          <span *ngIf="message.level!=1">{{message.msg}}</span>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
 </div>

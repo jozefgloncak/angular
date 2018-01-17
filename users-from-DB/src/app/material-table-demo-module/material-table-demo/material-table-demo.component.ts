@@ -27,17 +27,17 @@ export class MaterialTableDemoComponent implements OnInit {
   ngAfterViewInit() {
     // this.userService.getUserAll();
     this.userService.getUserAll(this.paginator, this.sort);
-    this.msgLog.add("call: ngAfterViewInit()")
+    this.msgLog.addLevel("call: MaterialTableDemoComponent.ngAfterViewInit()", 2)
   }
 
   ngOnInit() {
     this.userService.setPaginator(this.paginator);
     this.userService.setSort(this.sort);
-    this.msgLog.add("call: ngOnInit()")
+    this.msgLog.addLevel("call: MaterialTableDemoComponent.ngOnInit()", 2)
   }
 
   openDialog(): void {
-    this.msgLog.add("call addUser()");
+    this.msgLog.addLevel("call MaterialTableDemoComponent.openDialog()", 2);
     let dialogRef : MatDialogRef<ListTableDialogDemoComponent, User>;
     dialogRef = this.dialog.open<ListTableDialogDemoComponent>(ListTableDialogDemoComponent, 
     {

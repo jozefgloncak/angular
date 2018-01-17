@@ -48,4 +48,8 @@ export class FormsComponent{
     this.isKeypress = false;
   }
 
+  catchEvent(msg : string) {
+    this.msgLog.addLevel(msg, 2);
+  }
+
 }

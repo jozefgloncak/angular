@@ -13,13 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule
   , MatDialogModule
   , MatSidenavModule
-  , MatRadioModule,
-  MatCheckboxModule
+  , MatRadioModule
+  , MatCheckboxModule
+  , MatTabsModule
  } from '@angular/material';
 import { ListTableDialogDemoComponent } from './new-user-dialog-module/new-user-dialog/new-user-dialog.component';
 import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.module';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ContextComponent } from './context/context.component'
+import { ContextComponent } from './context/context.component';
 
 
 
@@ -30,6 +31,7 @@ import { ContextComponent } from './context/context.component'
   , NewUserDialogModule
   , MatCheckboxModule
   , MatSidenavModule
+  , MatTabsModule
  ],
   declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent, NavigationComponent, ContextComponent],
 

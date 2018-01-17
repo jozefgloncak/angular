@@ -8,10 +8,15 @@ import { MessageService } from '../message.service';
 })
 export class MessageComponent implements OnInit {
  
+  logging1: {}
+  isOdd : boolean;
+
   @Input()
   wrapLines = false;
 
-  constructor(public messageService: MessageService) {}
+  constructor(public messageService: MessageService) {
+    this.logging1 = { 'odd': true, 'bold': this.isOdd};
+  }
  
   ngOnInit() {
   }
