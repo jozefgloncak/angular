@@ -23,6 +23,7 @@ import { NewUserDialogModule } from './new-user-dialog-module/new-user-dialog.mo
 import { NavigationComponent } from './navigation/navigation.component';
 import { ContextComponent } from './context/context.component';
 
+import { GraphModule } from './graph/graph.module'
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ContextComponent } from './context/context.component';
   , MatSidenavModule
   , MatTabsModule
   , MatSlideToggleModule
+  , GraphModule
  ],
   declarations: [AppComponent, MessageComponent, ListTableDialogDemoComponent, NavigationComponent, ContextComponent],
 
