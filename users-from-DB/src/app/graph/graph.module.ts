@@ -8,14 +8,17 @@ import { NvD3Module } from 'ng2-nvd3';
 
 import 'd3';
 import 'nvd3';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     NvD3Module,
-    GraphRoutingModule
+    GraphRoutingModule,
+    FormsModule
   ],
-  declarations: [BarChartComponent]
+  declarations: [BarChartComponent, LineChartComponent]
 })
 export class GraphModule { }

@@ -1,3 +1,7 @@
 <div>
-  <nvd3 [options]="options" [data]="data"></nvd3>
+    <label for="chartColor">chart color</label>    
+    <input type="text" [(ngModel)]="color" id="chartColor">
+    <button (click)="redraw()">redraw</button>
+    <nvd3 [options]="options" [data]="data"></nvd3>
+    {{color}}
 </div>
