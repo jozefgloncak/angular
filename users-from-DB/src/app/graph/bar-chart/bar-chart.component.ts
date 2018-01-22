@@ -40,7 +40,7 @@ export class BarChartComponent implements OnInit {
         },
         x: function(d){return d.label;},
         y: function(d){return d.value;},
-        showValues: true,
+        showValues: true,  //display values above bar charts
         duration: 500,
         xAxis: {
           axisLabel: 'X Axis'
@@ -48,7 +48,12 @@ export class BarChartComponent implements OnInit {
         yAxis: {
           axisLabel: 'Y Axis',
           axisLabelDistance: -100
-        }
+        },
+        color: function(d) {return d.color;},
+        // showXAxis:false, //hide X axis
+        // showYAxis:false, //hide y axis
+        // staggerLabels: true, //labels at x axis would be at various height so overlapping is less propable
+
       }
     }
     this.data = [

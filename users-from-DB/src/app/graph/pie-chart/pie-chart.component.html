@@ -1,0 +1,15 @@
+<div>
+    <label for="lblsOutside">labels outside</label>
+    <mat-checkbox [(ngModel)]="labelsOutside" (change)="redraw()" id="lblsOutside"></mat-checkbox>
+
+    <label for="isDonutLbl">is donut</label>
+    <mat-checkbox [(ngModel)]="isDonut" (change)="redraw()" id="isDonutLbl"></mat-checkbox>
+
+    <label for="growOnHoverLbl">grow on hover</label>
+    <mat-checkbox [(ngModel)]="growOnHover" (change)="redraw()" id="growOnHoverLbl"></mat-checkbox>
+<br />
+    <mat-slider min="0" max="1" step="0.05" value="0.5" [(ngModel)]="donutRatio" (change)="redraw()" [disabled]="!isDonut"></mat-slider>
+    {{donutRatio | number:'1.2-2'}}
+    
+    <nvd3 [options]="options" [data]="data"></nvd3>    
+</div>

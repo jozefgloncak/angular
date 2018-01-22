@@ -9,16 +9,26 @@ import { NvD3Module } from 'ng2-nvd3';
 import 'd3';
 import 'nvd3';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { FormsModule } from '@angular/forms';
-
+import { MatCheckboxModule
+        ,MatSliderModule
+       } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     NvD3Module,
     GraphRoutingModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatSliderModule
+  ],
+  exports: [
+    MatCheckboxModule,
     FormsModule
   ],
-  declarations: [BarChartComponent, LineChartComponent]
+
+  declarations: [BarChartComponent, LineChartComponent, PieChartComponent]
 })
 export class GraphModule { }
