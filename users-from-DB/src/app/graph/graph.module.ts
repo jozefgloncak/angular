@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule
         ,MatSliderModule
        } from '@angular/material';
+import { MultiBarChartComponent } from './multi-bar-chart/multi-bar-chart.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,6 @@ import { MatCheckboxModule
     FormsModule
   ],
 
-  declarations: [BarChartComponent, LineChartComponent, PieChartComponent]
+  declarations: [BarChartComponent, LineChartComponent, PieChartComponent, MultiBarChartComponent]
 })
 export class GraphModule { }
