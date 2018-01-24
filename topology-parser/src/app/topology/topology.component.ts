@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonParserService } from '../json-parser.service';
+import { Node } from '../Node';
 
 @Component({
   selector: 'app-topology',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topology.component.css']
 })
 export class TopologyComponent implements OnInit {
+  
+  nodes : Node[];
+  displayCtx:boolean;
+  public fileContent:string;
 
-  constructor() { }
+  
+  constructor(private jsonParser:JsonParserService) { }
 
-  ngOnInit() {
+  loadFile() {
+    this.fileContent = this.jsonParser.provideContent();
+  }
+
+  analyzeContent() {
+    let nodeNameToNode : Map<string, Node> = this.jsonParser.analyzeContent();    
+    this.nodes = Array.from(nodeNameToNode.values());
+    // console.log(this.nodes);
   }
 
 }

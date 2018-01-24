@@ -1,12 +1,5 @@
 <div>
   <input type="file" (change)="fileChange($event)" placeholder="Upload file">
-  <div *ngIf="jsonFileContent!=null">
-    <button type="button">analyze</button>
-  </div>
   <br />
-  <label for="displayContent">display file content</label>
-  <input type="checkbox" #displayCtxCheckBox (change)="displayCtxCheckBox.checked ? displayCtx=true : displayCtx=false" id="displayContent">
-  <div *ngIf="displayCtx">
-    {{fileContent}}
-  </div>
 </div>
+
