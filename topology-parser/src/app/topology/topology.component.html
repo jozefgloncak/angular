@@ -1,25 +1,23 @@
-<input type="button" (click)="loadFile()" value="Load file">
-
-<div *ngIf="fileContent!=null">
-    <button type="button" (click)="analyzeContent()">analyze</button>
-</div>
-<label for="displayContent">display file content</label>
-<input type="checkbox" #displayCtxCheckBox (change)="displayCtxCheckBox.checked ? displayCtx=true : displayCtx=false" id="displayContent">
-<div *ngIf="displayCtx">
-    {{fileContent}}
-</div>
-<div *ngIf="nodes!=null">
-  <table border="1">
-    <tr><th>node</th><th>neighbours</th></tr>
-    <tr *ngFor="let node of nodes">                
-      <td><a name="{{node.id}}"></a>{{node.id}}</td>
-      <td>
-        <ol>
-          <li *ngFor="let neighbour of node.nbr">
-            <a href="#{{neighbour}}">{{neighbour}}</a>
-          </li>
-        </ol>
-      </td>
-    </tr>
-  </table>
+<div *ngIf="jsonParser.rawFile!=null">
+  <button type="button" (click)="analyzeContent()">analyze</button>
+  <label for="displayContent">display file content</label>
+  <input type="checkbox" #displayCtxCheckBox (change)="displayCtxCheckBox.checked ? displayCtx=true : displayCtx=false" id="displayContent">
+  <div *ngIf="displayCtx">
+      {{jsonParser.rawFile}}
+  </div>
+  <div *ngIf="nodes!=null">
+    <table border="1">
+      <tr><th>node</th><th>neighbours</th></tr>
+      <tr *ngFor="let node of nodes">                
+        <td><a name="{{node.id}}"></a>{{node.id}}</td>
+        <td>
+          <ol>
+            <li *ngFor="let neighbour of node.nbr">
+              <a href="#{{neighbour}}">{{neighbour}}</a>
+            </li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

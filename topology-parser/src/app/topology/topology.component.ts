@@ -16,13 +16,15 @@ export class TopologyComponent implements OnInit {
   
   constructor(private jsonParser:JsonParserService) { }
 
-  loadFile() {
-    this.fileContent = this.jsonParser.provideContent();
-  }
+  // loadFile() {
+  //   this.jsonParser.provideContent().subscribe(
+  //     fileContent => {this.fileContent = fileContent}
+  //   );
+  // }
 
   analyzeContent() {
-    let nodeNameToNode : Map<string, Node> = this.jsonParser.analyzeContent();    
-    this.nodes = Array.from(nodeNameToNode.values());
+    this.jsonParser.analyzeContent();    
+    this.nodes = this.jsonParser.nodes;
     // console.log(this.nodes);
   }
 

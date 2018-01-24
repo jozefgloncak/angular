@@ -1,55 +1,60 @@
 import { Injectable } from '@angular/core';
 import { Node } from './Node';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
+
 
 @Injectable()
 export class JsonParserService {
 
   constructor() { }
 
-  fileContent : string;
-  json : any;
+  rawFile : string;
+  jsonParsedFile : any;
+  nodes: Node[] = [];
 
-  public readFile(event) {
+  public selectFile(event) : File {
     let fileList: FileList = event.target.files;
     if(fileList.length > 0) {
-      let file: File = fileList[0];
-      let reader = new FileReader();
+      return fileList[0];
+    }
+    return null;
+  }
 
-      reader.onload = (e) => {
-        this.fileContent = reader.result;
-        console.info(this.fileContent);
-        // this.jsonFileContent = JSON.parse(reader.result);
-        // console.log(this.jsonFileContent[0].srcIP);
+  public readFile(file:File) {
+    if (file != null) {
+      let reader = new FileReader();
+      reader.onload = (e) => {        
+        this.rawFile = reader.result
       };
       reader.readAsText(file);
-      reader.result
     }
   }
 
   provideContent() : string {
-    return this.fileContent;
+    return this.rawFile;
   }
 
-  analyzeContent(): Map<string, Node> {
-    // let result:TopoForwardStar[] = [];
-    this.json = JSON.parse(this.fileContent);
+  analyzeContent() {    
+      this.jsonParsedFile = JSON.parse(this.rawFile);
 
-    let result: Map<string, Node> = new Map<string, Node>();
-    // console.log("analyzeContent()");
-    if (Array.isArray(this.json)) {
-      // console.log("analyzeContent(): is array");
-      let nodes : any[] = this.json
-      for (let node of nodes) {
-        if (node.hasOwnProperty("ECUName")) {
-          // console.log("analyzeContent(): ECUName: "+node.ECUName)
-          let neighbours :Set<string> = this.colectNeighboursFromMessages(node);
-          let nodeName : string = node.ECUName
-          result.set(nodeName, new Node(nodeName, neighbours))
+      let result: Map<string, Node> = new Map<string, Node>();
+      // console.log("analyzeContent()");
+      if (Array.isArray(this.jsonParsedFile)) {
+        // console.log("analyzeContent(): is array");
+        let nodes : any[] = this.jsonParsedFile
+        for (let node of nodes) {
+          if (node.hasOwnProperty("ECUName")) {
+            // console.log("analyzeContent(): ECUName: "+node.ECUName)
+            let neighbours :Set<string> = this.colectNeighboursFromMessages(node);
+            let nodeName : string = node.ECUName
+            result.set(nodeName, new Node(nodeName, neighbours))
+          }
         }
       }
-    }
+      this.nodes = Array.from(result.values());
 
-    return result;
   }
 
   /**

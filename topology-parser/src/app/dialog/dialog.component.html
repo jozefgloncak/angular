@@ -1,5 +1,10 @@
 <div>
-  <input type="file" (change)="fileChange($event)" placeholder="Upload file">
-  <br />
+  <input type="file" (change)="selectFile($event)" placeholder="Upload file">
+  <div *ngIf="selectedFile!=null">
+    <input type="button" (click)="readFile()" value="read file">
+  </div>
+  <div *ngIf="jsonParser.rawFile!=null">
+    file loaded
+  </div>
 </div>
 
