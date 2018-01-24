@@ -1,10 +1,15 @@
-<div>
-  <input type="file" (change)="selectFile($event)" placeholder="Upload file">
-  <div *ngIf="selectedFile!=null">
-    <input type="button" (click)="readFile()" value="read file">
+<h1 mat-dialog-title>JSON file selection</h1>
+<div mat-dialog-content>
+    <input type="file" (change)="selectFile($event)">
+    <div *ngIf="selectedFile!=null">
+      <input type="button" (click)="readFile()" value="read file">
+    </div>
+    <div *ngIf="jsonParser.rawFile!=null">
+      file loaded
+    </div>
   </div>
-  <div *ngIf="jsonParser.rawFile!=null">
-    file loaded
-  </div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onOkClick()">Ok</button>
 </div>
+
 

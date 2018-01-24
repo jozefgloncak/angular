@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -15,8 +17,11 @@ import { JsonParserService } from './json-parser.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [JsonParserService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }
