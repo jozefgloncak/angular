@@ -1,22 +1,28 @@
-<input type="button" value="start" (click)="openDialog()">
-<div *ngIf="jsonParser.rawFile!=null && dialogClosed">
-  <button type="button" (click)="analyzeContent()">analyze</button>
+<!-- <input type="button" value="start" (click)="openDialog()"> -->
+<!-- <div *ngIf="jsonParser.rawFile!=null && dialogClosed"> -->
+  <!-- <button type="button" (click)="analyzeContent()">analyze</button> -->
+<input type="file" (change)="chooseFile($event)">
+<div *ngIf="jsonParser.rawFile!=null">
+  <button type="file" (click)="analyzeContent()">analyze</button>
   <label for="displayContent">display file content</label>
   <input type="checkbox" #displayCtxCheckBox (change)="displayCtxCheckBox.checked ? displayCtx=true : displayCtx=false" id="displayContent">
   <div *ngIf="displayCtx">
       {{jsonParser.rawFile}}
   </div>
-  <div *ngIf="nodes!=null">
+  <div *ngIf="nodeToNeighbours!=null">
     <table border="1">
       <tr><th>node</th><th>neighbours</th></tr>
-      <tr *ngFor="let node of nodes">                
-        <td><a name="{{node.id}}"></a>{{node.id}}</td>
-        <td>
+      <tr *ngFor="let nodeId of nodeToNeighbours.keys()">                
+        <td><a name="{{nodeId}}"></a>{{nodeId}}</td>
+        <td *ngIf="nodeToNeighbours.get(nodeId).size!=0">
           <ol>
-            <li *ngFor="let neighbour of node.nbr">
+            <li *ngFor="let neighbour of nodeToNeighbours.get(nodeId)">
               <a href="#{{neighbour}}">{{neighbour}}</a>
             </li>
           </ol>
+        </td>
+        <td *ngIf="nodeToNeighbours.get(nodeId).size==0" bgcolor="red">
+          NOTHING
         </td>
       </tr>
     </table>

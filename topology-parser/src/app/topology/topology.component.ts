@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { JsonParserService } from '../json-parser.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { Node } from '../Node';
+import { NodeModel } from '../shared/models/node-model';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class TopologyComponent {
   
-  nodes : Node[];
+  nodeToNeighbours : Map<string,Set<string>>;
   displayCtx:boolean;
   fileContent:string;
 
@@ -33,10 +33,19 @@ export class TopologyComponent {
     });
   }
 
+  chooseFile(event) {
+    let file: File = this.jsonParser.selectFile(event);
+    this.jsonParser.readFile(file);
+  }
+
   analyzeContent() {
-    this.jsonParser.analyzeContent();    
-    this.nodes = this.jsonParser.nodes;
-    // console.log(this.nodes);
+    this.nodeToNeighbours = this.jsonParser.analyzeContent();    
+    this.nodeToNeighbours.forEach((value : Set<string>, key, map) => {
+      console.log(key);
+      value.forEach(element => {
+        console.log(" ",element);
+      });
+    });
   }
 
 }

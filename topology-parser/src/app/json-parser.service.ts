@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Node } from './Node';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { NodeModel } from './shared/models/node-model';
 
 
 
@@ -12,7 +12,7 @@ export class JsonParserService {
 
   rawFile : string;
   jsonParsedFile : any;
-  nodes: Node[] = [];
+  nodes: NodeModel[] = [];
 
   public selectFile(event) : File {
     let fileList: FileList = event.target.files;
@@ -36,71 +36,49 @@ export class JsonParserService {
     return this.rawFile;
   }
 
-  analyzeContent() {    
-      this.jsonParsedFile = JSON.parse(this.rawFile);
-
-      let result: Map<string, Node> = new Map<string, Node>();
-      // console.log("analyzeContent()");
-      if (Array.isArray(this.jsonParsedFile)) {
-        // console.log("analyzeContent(): is array");
-        let nodes : any[] = this.jsonParsedFile
-        for (let node of nodes) {
-          if (node.hasOwnProperty("ECUName")) {
-            // console.log("analyzeContent(): ECUName: "+node.ECUName)
-            let neighbours :Set<string> = this.colectNeighboursFromMessages(node);
-            let nodeName : string = node.ECUName
-            result.set(nodeName, new Node(nodeName, neighbours))
-          }
+  parseNodes(data:any): Map<string,NodeModel> {
+    let nameToNodes : Map<string,NodeModel> = new Map();
+    data.map(rawNodeData => {
+      if (rawNodeData.hasOwnProperty("ECUName")) {
+        let nodeName : string = rawNodeData.ECUName;
+        let nodeFromMap : NodeModel = nameToNodes.get(nodeName); //TODO check existence of this property
+        if (nodeFromMap != null) {
+          console.log("node ",nodeName ," already created. adding data.")
+          nodeFromMap.addDataToReceiverNode(rawNodeData, nameToNodes);
+        } else {
+          let newNode: NodeModel  = NodeModel.createFromTopLevel(rawNodeData, nameToNodes)
+          nameToNodes.set(nodeName, newNode);
+          console.log(" node ",nodeName," created");
         }
       }
-      this.nodes = Array.from(result.values());
-
+    });
+    return nameToNodes ;
   }
 
-  /**
-   * Collects from node.Messages.signals all neighbours
-   * 
-   * @param node for which neighbours should be collected
-   * @returns set of neighbours
-   */
-  private colectNeighboursFromMessages(node:any) : Set<string> {
-    let result : Set<string> = new Set();
-
-    if (node.hasOwnProperty("Messages")) {
-      let messages : any = node.Messages;
-      if (Array.isArray(messages)) {
-        for (let i=0; i<messages.length; i++) {
-          let message : any = messages[i];
-          if (message.hasOwnProperty("signals")) {
-            let signals : any = message.signals;
-            if (Array.isArray(signals)) {
-              for (let i=0; i<signals.length; i++) {
-                let signal : any = signals[i];
-                if (signal.hasOwnProperty("Receivers")) {
-                  let neighboursFromSignal : string[] = this.parseToNeighbours(signal.Receivers)
-                  // console.log(neighboursFromSignal);
-                  neighboursFromSignal.forEach((neighbourFromSignal)=>result.add(neighbourFromSignal));
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return result;
+  extractNodeToNeighboursMapping(nameToNode : Map<string, NodeModel>) : Map<string,Set<string>> {
+    let nodeToNeighbours : Map<string,Set<string>> = new Map();
+    nameToNode.forEach((node, key, map) => {
+      let nodeId = node.ECUName;
+      let receivers : Set<string> = new Set();      
+      if (node.isFromTopLevel) {
+        node.Messages.forEach(msg => {
+          msg.signals.forEach(sgn => {
+            sgn.Receivers.forEach(receiver => {
+              receivers.add(receiver);
+            })
+          })
+        })
+      }      
+      nodeToNeighbours.set(nodeId,receivers)
+    });
+    return nodeToNeighbours;
   }
 
-  private parseToNeighbours(input: any) : string[] {
-    let neighbours : string[] = [];
-    if (typeof input === 'string') {
-      let inputStr : string = input;
-      let neighboursPartial : string[] = inputStr.split(',')
-      for (let i = 0; i < neighboursPartial.length; i++) {
-        neighboursPartial[i] = neighboursPartial[i].trim();
-      }
-      neighbours = neighbours.concat(neighboursPartial);
-    }
-    return neighbours;
+
+  analyzeContent() :  Map<string,Set<string>> {    
+    this.jsonParsedFile = JSON.parse(this.rawFile);
+    let nameToNode : Map<string, NodeModel> = this.parseNodes(this.jsonParsedFile);
+    return this.extractNodeToNeighboursMapping(nameToNode);
   }
 
 }
