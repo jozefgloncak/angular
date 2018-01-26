@@ -1,5 +1,4 @@
 import { SignalModel } from "./signal-model";
-import { NodeModel } from "./node-model";
 
 export class MessageModel {
     messageID: string;
@@ -8,11 +7,11 @@ export class MessageModel {
     dstPort: number;
     signals: SignalModel[];
 
-    constructor(data: any, nameToNode : Map<String, NodeModel>) {
+    constructor(data: any, receivers : Set<string>) {
         this.messageID = data.messageID;
         this.messageName = data.messageName;
         this.srcPort = Number.parseInt(data.srcPort);
         this.dstPort = Number.parseInt(data.dstPort);
-        this.signals = data.signals.map( s => new SignalModel(s, nameToNode));
+        this.signals = data.signals.map( s => new SignalModel(s, receivers));
     }
 }

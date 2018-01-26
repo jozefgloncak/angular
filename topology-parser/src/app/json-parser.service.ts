@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { NodeModel } from './shared/models/node-model';
+import { ReceiversAndNodes } from './shared/receivers-and-nodes';
 
 
 
@@ -36,31 +37,26 @@ export class JsonParserService {
     return this.rawFile;
   }
 
-  parseNodes(data:any): Map<string,NodeModel> {
+  parseNodes(data:any): ReceiversAndNodes {
     let nameToNodes : Map<string,NodeModel> = new Map();
+    let receivers : Set<string> = new Set();
     data.map(rawNodeData => {
-      if (rawNodeData.hasOwnProperty("ECUName")) {
-        let nodeName : string = rawNodeData.ECUName;
-        let nodeFromMap : NodeModel = nameToNodes.get(nodeName); //TODO check existence of this property
-        if (nodeFromMap != null) {
-          console.log("node ",nodeName ," already created. adding data.")
-          nodeFromMap.addDataToReceiverNode(rawNodeData, nameToNodes);
-        } else {
-          let newNode: NodeModel  = NodeModel.createFromTopLevel(rawNodeData, nameToNodes)
-          nameToNodes.set(nodeName, newNode);
-          console.log(" node ",nodeName," created");
-        }
-      }
+        let newNode: NodeModel  = new NodeModel(rawNodeData, receivers)
+        nameToNodes.set(newNode.ECUName, newNode);
     });
-    return nameToNodes ;
+    return new ReceiversAndNodes(nameToNodes, receivers) ;
   }
-
-  extractNodeToNeighboursMapping(nameToNode : Map<string, NodeModel>) : Map<string,Set<string>> {
+  
+  extractNodeToNeighboursMapping(receiversAndNodes : ReceiversAndNodes) : Map<string,Set<string>> {
     let nodeToNeighbours : Map<string,Set<string>> = new Map();
-    nameToNode.forEach((node, key, map) => {
-      let nodeId = node.ECUName;
+    let allReceivers :Set<string> = receiversAndNodes.receivers
+    let nameToNode : Map<String, NodeModel> = receiversAndNodes.nodes;
+    allReceivers.forEach((nodeId , value2 , allReceivers) =>{
+      console.log("value1 ", nodeId);
+      console.log("value2 ", value2);
+      let node : NodeModel = nameToNode.get(nodeId)
       let receivers : Set<string> = new Set();      
-      if (node.isFromTopLevel) {
+      if (node != null) {
         node.Messages.forEach(msg => {
           msg.signals.forEach(sgn => {
             sgn.Receivers.forEach(receiver => {
@@ -68,17 +64,17 @@ export class JsonParserService {
             })
           })
         })
-      }      
+      }
       nodeToNeighbours.set(nodeId,receivers)
     });
     return nodeToNeighbours;
   }
-
-
+  
+  
   analyzeContent() :  Map<string,Set<string>> {    
     this.jsonParsedFile = JSON.parse(this.rawFile);
-    let nameToNode : Map<string, NodeModel> = this.parseNodes(this.jsonParsedFile);
-    return this.extractNodeToNeighboursMapping(nameToNode);
+    let receiversAndNodes : ReceiversAndNodes = this.parseNodes(this.jsonParsedFile);
+    return this.extractNodeToNeighboursMapping(receiversAndNodes);
   }
 
 }

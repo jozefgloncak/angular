@@ -1,8 +1,8 @@
-<!-- <input type="button" value="start" (click)="openDialog()"> -->
-<!-- <div *ngIf="jsonParser.rawFile!=null && dialogClosed"> -->
-  <!-- <button type="button" (click)="analyzeContent()">analyze</button> -->
-<input type="file" (change)="chooseFile($event)">
-<div *ngIf="jsonParser.rawFile!=null">
+<input type="button" value="start" (click)="openDialog()">
+<div *ngIf="jsonParser.rawFile!=null && dialogClosed">
+  <button type="button" (click)="analyzeContent()">analyze</button>
+<!-- <input type="file" (change)="chooseFile($event)"> -->
+<!-- <div *ngIf="jsonParser.rawFile!=null"> -->
   <button type="file" (click)="analyzeContent()">analyze</button>
   <label for="displayContent">display file content</label>
   <input type="checkbox" #displayCtxCheckBox (change)="displayCtxCheckBox.checked ? displayCtx=true : displayCtx=false" id="displayContent">
