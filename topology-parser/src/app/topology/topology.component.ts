@@ -4,13 +4,17 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { NodeModel } from '../shared/models/node-model';
 import { DialogComponent } from '../dialog/dialog.component';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+
+import { sharedStylesheetJitUrl } from '@angular/compiler';
+import * as data from "../data/data.json";
 
 @Component({
   selector: 'app-topology',
   templateUrl: './topology.component.html',
   styleUrls: ['./topology.component.css']
 })
-export class TopologyComponent {
+export class TopologyComponent implements OnInit {
   
   nodeToNeighbours : Map<string,Set<string>>;
   displayCtx:boolean;
@@ -18,6 +22,12 @@ export class TopologyComponent {
 
   dialogClosed:boolean;
   
+  ngOnInit() {
+    console.log("**** start of data.json file ****")
+    console.log(data);
+    console.log("**** end of data.json file ****")
+  }
+
   constructor(private jsonParser:JsonParserService, public dialog: MatDialog) { }
 
   openDialog(): void {
