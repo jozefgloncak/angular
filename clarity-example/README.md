@@ -1,3 +1,6 @@
+# Data
+Data has been converted from CSV format to JSON by [CSVtoJson converter](http://www.convertcsv.com/csv-to-json.htm)
+
 # ClarityExample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.

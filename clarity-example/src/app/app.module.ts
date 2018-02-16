@@ -4,15 +4,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ClarityModule } from "@clr/angular";
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietetic-groceries-list.component';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DieteticGroceriesListComponent
   ],
   imports: [
     BrowserModule,  
-    ClarityModule
+    ClarityModule,
+    HttpModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

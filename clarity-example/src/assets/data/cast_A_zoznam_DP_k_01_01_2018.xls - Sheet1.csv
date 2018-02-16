@@ -1,0 +1,71 @@
+﻿trackingCode,pairingCode,name,suplement,producer,state,maxPrice,healthInsurenceCompanySurcharge,paymentWay,insuredSurcharge,lsSurcharge,rdInPackage,prescriptionLimit,quantityLimit
+D0170,,"PROMIX-CH, zmes na prípravu bezlepkového chleba",plv 1x1000 g,NVL,SK,4.09,3.22,S,0.87,0.87,10.000,"GIT, ALG, DER, INT, PED",L2
+D0171,,"PROMIX-PK, zmes na bezlepkové pečivo ",plv 1x1000 g,NVL,SK,4.09,3.22,S,0.87,0.87,10.000,"GIT, ALG, DER, INT, PED",L2
+D0256,,Cícerová múka instantná,plv 1x500 g,EXT,CZ,3.05,1.61,S,1.44,0.44,5.000,"GIT, ALG, DER, INT, PED",L2
+D0386,,Bezlepková sypká zmes Mantler bez laktózy,plv 1x1000g,MTM,AT,3.93,3.55,S,0.38,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0407,,"PROMIX-PK špeciál, zmes na bezlepkové pečivo bez mlieka, laktózy a sóje",plv 1x1000 g,NVL,SK,3.95,3.55,S,0.40,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0408,,"PROMIX-CH špeciál , zmes na bezlepkový chlieb bez mlieka, laktózy a sóje",plv 1x1000 g,NVL,SK,3.95,3.55,S,0.40,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0405,,Farina - univerzálna bezlepková múka,plv 1x1000g,SCH,IT,4.07,3.55,S,0.52,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0656,,Mix it- bezgluténová univerzálna zmes na pečenie ,plv 1x500g,SCH,IT,2.17,1.78,S,0.39,0.19,5.000,"GIT, ALG, DER, INT, PED",L2
+D0685,,"Jizerka - bezlepková zmes ""ZELENÁ""",plv 1x1000 g,JIZ,CZ,4.36,3.55,S,0.81,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0172,,"PROMIX-UNI, univerzálna bezlepková múka",plv 1x1000 g,NVL,SK,4.78,3.55,S,1.23,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0173,,"PROMIX-T, univerzálna bezlepková múka tmavá",plv 1x1000 g,NVL,SK,4.78,3.55,S,1.23,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0406,,Mix C - Mix Patisserie univerzálna bezlepková múka,plv 1x1000g,SCH,IT,4.96,3.55,S,1.41,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0872,,"PROMIX Alfa, univerzálna mineralizovaná bezgluténová múka",plv 1x1000 g,NVL,SK,5.06,3.55,S,1.51,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0873,,"PROMIX Beta, racionálna mineralizovaná bezgluténová múka",plv 1x1000 g,NVL,SK,5.06,3.55,S,1.51,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0973,,Bakery mix - múčna bezlepková zmes na kysnuté cesto ,plv 1x1000 g,GLG,SK,5.12,3.55,S,1.57,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0974,,Mix per Pane - zmes na chlieb,plv 1x1000 g,NTF,IT,5.24,3.55,S,1.69,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0194,,"PROMIX-FORTE, silná bezlepková múka",plv 1x1000 g,NVL,SK,5.40,3.55,S,1.85,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0298,,Mix B - bezlepková zmes na prípravu chleba,plv 1x1000 g,SCH,IT,5.40,3.55,S,1.85,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0657,,Mix it Dunkel - chlebová zmes tmavá ,plv 1x1000 g,SCH,IT,5.68,3.55,S,2.13,0.38,10.000,"GIT, ALG, DER, INT, PED",L2
+D0337,,PROMIX-UNI komfort - univerzálna bezlepková zmes pre automatické pečenie,plv 1x400 g,NVL,SK,2.35,1.42,S,0.93,0.15,4.000,"GIT, ALG, DER, INT, PED",L2
+D0975,,Mix per Pane FIBRA+ celozrnná zmes na chlieb s vysokým obsahom vlákniny,plv 1x500 g,NTF,IT,3.03,1.78,S,1.25,0.19,5.000,"GIT, ALG, DER, INT, PED",L2
+D0175,,KRUPICA bezlepková,plv 1x500 g,NVL,SK,3.81,1.76,S,2.05,2.05,5.000,"GIT, ALG, DER, INT, PED",L3
+D0254,,Strúhanka bezlepková pečivová,plv 1x350 g,NVL,SK,3.07,1.24,S,1.83,1.44,3.500,"GIT, ALG, DER, INT, PED",
+D0658,,Paniermehl - breadcrumbs - strúhanka bez lepku,plv 1x300 g,SCH,IT,2.77,1.06,S,1.71,1.23,3.000,"GIT, ALG, DER, INT, PED",
+D0976,,Cake Mix - bezlepková piškótová zmes,plv 1x1000 g,GLG,SK,4.13,2.01,S,2.12,2.12,10.000,"GIT, ALG, DER, INT, PED",L2
+D0272,,Knedľa bezlepková v prášku,plv 1x250 g,NVL,SK,1.20,0.50,S,0.70,0.53,2.500,"GIT, ALG, DER, INT, PED",L2
+D0335,,Muffin bezlepkový v prášku,plv 1x300 g,NVL,SK,1.83,0.60,S,1.23,0.64,3.000,"GIT, ALG, DER, INT, PED",L2
+D0977,,Fine Mix - bezlepková zmes na perníky,plv 1x300 g,GLG,SK,3.26,0.60,S,2.66,0.64,3.000,"GIT, ALG, DER, INT, PED",L2
+D0659,,Ertha - bezlepkový plátkový celozrnný chlieb ,1x400 g,SCH,IT,3.46,2.20,S,1.26,1.26,4.000,"GIT, ALG, DER, INT, PED",L2
+D0874,,LINSI - bezgluténový chlieb s ľanom,1x300 g,NVL,SK,2.80,1.65,S,1.15,0.95,3.000,"GIT, ALG, DER, INT, PED",L2
+DP024,,Chlieb bezlepkový  (trvanlivý),1x360 g,NVL,SK,3.51,1.98,S,1.53,1.13,3.600,"GIT, ALG, DER, INT, PED",L2
+D0185,DP024,Chlieb bezlepkový svetlý (trvanlivý),1x360 g,NVL,SK,3.51,1.98,N,1.53,1.13,3.600,"GIT, ALG, DER, INT, PED",L2
+D0251,DP024,Chlieb bezlepkový tmavý (trvanlivý),1x360 g,NVL,SK,3.51,1.98,N,1.53,1.13,3.600,"GIT, ALG, DER, INT, PED",L2
+D0939,,"Maestro Vital, chlieb bezgluténový kysnutý viaczrnný krájaný ",1x350 g,SCH,IT,3.46,1.92,S,1.54,1.10,3.500,"GIT, ALG, DER, INT, PED",L2
+D0940,,"Maestro Classic, chlieb bezgluténový krájaný  ",1x300 g,SCH,IT,3.09,1.65,S,1.44,0.95,3.000,"GIT, ALG, DER, INT, PED",L2
+D0941,,"Maestro Cereale, chlieb bezgluténový viaczrnný krájaný ",1x300 g,SCH,IT,3.26,1.65,S,1.61,0.95,3.000,"GIT, ALG, DER, INT, PED",L2
+D0478,,Rustico - bezlepkový plnozrnný chlieb,1x450 g,SCH,IT,4.99,2.47,S,2.52,1.42,4.500,"GIT, ALG, DER, INT, PED",L2
+D0875,,"Panini, Hamburger - bezgluténové žemle bez lepku",1x300 g,SCH,IT,3.97,1.65,S,2.32,0.95,3.000,"GIT, ALG, DER, INT, PED",L2
+D0978,,Panfette- integrale- celozrnný chlieb krájaný,plv 1x340 g,NTF,IT,4.57,1.87,S,2.70,1.07,3.400,"GIT, ALG, DER, INT, PED",L2
+D0290,,Pan Carré - bezlepkový biely chlieb,1x400 g,SCH,IT,4.55,2.20,S,2.35,1.26,4.000,"GIT, ALG, DER, INT, PED",L2
+D0979,,Panfette- krájaný chlieb biely,plv 1x300 g,NTF,IT,4.32,1.65,S,2.67,0.95,3.000,"GIT, ALG, DER, INT, PED",L2
+D0479,,Pain Campagnard - bezlepkový domáci chlieb,1x240 g,SCH,IT,3.69,1.32,S,2.37,0.76,2.400,"GIT, ALG, DER, INT, PED",L2
+D0660,,Ciabatta  - predpečené bezlepkové  žemle ,1x200 g,SCH,IT,3.19,1.10,S,2.09,0.63,2.000,"GIT, ALG, DER, INT, PED",L2
+D0661,,Ciabatta Rustica - predpečené bezlepkové celozrnné žemle ,1x200 g,SCH,IT,3.30,1.10,S,2.20,0.63,2.000,"GIT, ALG, DER, INT, PED",L2
+D0293,,Bon Matin - bezlepkové sladké žemle,1x200 g,SCH,IT,3.58,1.10,S,2.48,0.63,2.000,"GIT, ALG, DER, INT, PED",L2
+D0480,,Zwieback - bezlepkové sucháre,1x165 g,SCH,IT,3.92,0.91,S,3.01,0.52,1.650,"GIT, ALG, DER, INT, PED",L2
+DP025,,Kukuričné cestoviny Felicia ,1x500 g,MOL,IT,3.18,2.60,S,0.58,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+D0632,DP025,Kukuričné cestoviny Felicia Conchigliette,1x500 g,MOL,IT,3.18,2.60,N,0.58,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+D0633,DP025,Kukuričné cestoviny Felicia Fusilli,1x500 g,MOL,IT,3.18,2.60,N,0.58,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+D0634,DP025,Kukuričné cestoviny Felicia Penne Rigate,1x500 g,MOL,IT,3.18,2.60,N,0.58,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+D0635,DP025,Kukuričné cestoviny Felicia Spaghetti,1x500 g,MOL,IT,3.18,2.60,N,0.58,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+DP026,,Bezlepkové cestoviny Schär,1x250 g,SCH,IT,1.75,1.30,S,0.45,0.29,2.500,"GIT, ALG, DER, INT, PED",L4
+D0662,DP026,Spaghetti - bezlepkové cestoviny ,1x250 g,SCH,IT,1.75,1.30,N,0.45,0.18,2.500,"GIT, ALG, DER, INT, PED",L4
+D0663,DP026,Penne - bezlepkové cestoviny ,1x250 g,SCH,IT,1.75,1.30,N,0.45,0.29,2.500,"GIT, ALG, DER, INT, PED",L4
+D0664,DP026,Fusilli - bezlepkové cestoviny ,1x250 g,SCH,IT,1.75,1.30,N,0.45,0.29,2.500,"GIT, ALG, DER, INT, PED",L4
+D0686,,Bio ryžové cestoviny Felicia FUSILLI TRICOLORE,1x500 g,MOL,IT,3.88,2.60,S,1.28,0.58,5.000,"GIT, ALG, DER, INT, PED",L4
+D0771,,Felicia  BIO celozrnné ryžové fusilli ,1x250 g,MOL,IT,2.22,1.30,S,0.92,0.29,2.500,"GIT, ALG, DER, INT, PED",L4
+D0180,,PROCEL – bezlepkové cestoviny,1x250 g,NVL,SK,2.35,1.30,S,1.05,0.29,2.500,"GIT, ALG, DER, INT, PED",L4
+D0340,,MUESLI bezlepkové granulované,1x200 g,NVL,SK,2.29,0.40,S,1.89,1.89,2.000,"GIT, ALG, DER, INT, PED",
+D0289,,Bezgluténové müsli ,1x375 g,SCH,IT,4.59,0.76,S,3.83,3.54,3.750,"GIT, ALG, DER, INT, PED",
+D0942,,"Fruit Müsli, müsli s ovocím bezgluténové ",1x375 g,SCH,IT,4.59,0.76,S,3.83,3.54,3.750,"GIT, ALG, DER, INT, PED",
+D0339,,Hviezdičky bezlepkové kakaové (extrudovaný výrobok),1x100 g,NVL,SK,1.31,0.20,S,1.11,0.95,1.000,"GIT, ALG, DER, INT, PED",
+DP027,,Limky -diétne keksy (bezlepkové),1x150 g,NVL,SK,2.28,0.30,S,1.98,1.42,1.500,"GIT, ALG, DER, INT, PED",
+D0252,DP027,Limky -diétne keksy vanilkové máčané (bezlepkové),1x150 g,NVL,SK,2.28,0.30,N,1.98,1.42,1.500,"GIT, ALG, DER, INT, PED",
+D0253,DP027,Limky -diétne keksy kakaové plnené (bezlepkové),1x150 g,NVL,SK,2.28,0.30,N,1.98,1.42,1.500,"GIT, ALG, DER, INT, PED",
+D0297,,Salinis - bezlepkové praclíky,1x60 g,SCH,IT,1.22,0.12,S,1.10,0.57,0.600,"GIT, ALG, DER, INT, PED",
+D0338,,Bezlepkové tyčinky s pohánkou (extrudovaný výrobok),1x85 g,NVL,SK,1.76,0.17,S,1.59,0.80,0.850,"GIT, ALG, DER, INT, PED",
+D0296,,Quadritos - bezlepkové kakaové oblátky,1x40 g,SCH,IT,1.22,0.08,S,1.14,0.38,0.400,"GIT, ALG, DER, INT, PED",
+D0876,,Knedľa - bezlepková parená ,1x320 g,NVL,SK,2.82,0.64,S,2.18,2.18,3.200,"GIT, ALG, DER, INT, PED",
+D0877,,Buchty - bezlepkové parené s lekvárom,1x320 g,NVL,SK,3.18,0.64,S,2.54,2.18,3.200,"GIT, ALG, DER, INT, PED",
