@@ -7,6 +7,7 @@ import { ClarityModule } from "@clr/angular";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietetic-groceries-list.component';
+import { AmountSelectorComponent } from './amount-selector/amount-selector.component';
 
 
 
@@ -14,7 +15,8 @@ import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietet
 @NgModule({
   declarations: [
     AppComponent,
-    DieteticGroceriesListComponent
+    DieteticGroceriesListComponent,
+    AmountSelectorComponent
   ],
   imports: [
     BrowserModule,  

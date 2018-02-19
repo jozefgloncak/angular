@@ -1,6 +1,8 @@
 <h2>Potraviny</h2>
 <div class="p1">Zoznam potravín, na ktoré dopláca zdravotná poisťovňa:</div>
 <clr-datagrid>
+  <clr-dg-column></clr-dg-column>
+  <clr-dg-column></clr-dg-column>
   <clr-dg-column>Vykazujúci kód</clr-dg-column>
   <clr-dg-column>Párajúci kód</clr-dg-column>
   <clr-dg-column>Názov</clr-dg-column>
@@ -16,22 +18,70 @@
   <clr-dg-column>Preskripčné obmedzenia</clr-dg-column>
   <clr-dg-column>Množstevné limity</clr-dg-column>
 
-  <clr-dg-row *ngFor="let grocery of groceries">
-    <clr-dg-cell>{{grocery.trackingCode}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.pairingCode}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.name}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.supplement}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.producer}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.state}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.maxPrice}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.paymentWay}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.insuredSurcharge}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.lsSurcharge}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.rdInPackage}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.prescriptionLimit}}</clr-dg-cell>
-    <clr-dg-cell>{{grocery.quantityLimit}}</clr-dg-cell>
-  </clr-dg-row>
+  <ng-template ngFor let-groceryView [ngForOf]="groceriesView">
+    <!-- todo: remove duplicit code -->
+    <clr-dg-row *ngIf="groceryView.isSelected" class="datagrid-row-selected">
+        <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
+        <clr-dg-cell>
+            <amount-selector></amount-selector>
+        </clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-row *ngIf="!groceryView.isSelected">
+        <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
+        <clr-dg-cell>
+            <amount-selector></amount-selector>
+        </clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
+        <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
+    </clr-dg-row>
+  </ng-template>
+  <clr-dg-footer>{{groceriesView.length}} potravín</clr-dg-footer>
+  <!-- <clr-dg-row class="datagrid-row-selected" *ngFor="let groceryView of groceriesView">
+      <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
+      <clr-dg-cell>
+          <amount-selector></amount-selector>
+      </clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
+      <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
+  </clr-dg-row> -->
 
-  <clr-dg-footer>{{groceries.length}} potravín</clr-dg-footer>
+
 </clr-datagrid>

@@ -28,6 +28,6 @@ export class Grocery {
         this.lsSurcharge = data.lsSurcharge
         this.rdInPackage = data.rdInPackage
         this.prescriptionLimit = data.prescriptionLimit
-        this.quantityLimit = data.quantityLimit;
+        this.quantityLimit = data.quantityLimit
     }
 }

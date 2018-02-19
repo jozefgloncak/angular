@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Grocery } from '../models/grocerie-model';
+import { GroceryView } from '../models/grocerie-view-model';
 
 @Component({
   selector: 'dietetic-groceries-list',
@@ -10,7 +11,7 @@ import { Grocery } from '../models/grocerie-model';
 })
 export class DieteticGroceriesListComponent implements OnInit {
 
-  private groceries : Grocery[];
+  private groceriesView : GroceryView[];
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +19,7 @@ export class DieteticGroceriesListComponent implements OnInit {
     this.getGroceries().subscribe(data => {
       //TODO: check whether it is array
       let dataAsAray : Array<any> = <Array<any>>data;
-      this.groceries = dataAsAray.map(element => new Grocery(element));
+      this.groceriesView = dataAsAray.map(element => new GroceryView(new Grocery(element)));
     });
   }
 

@@ -1,0 +1,6 @@
+.amount-selector-input {
+    min-width:0.5rem;
+}
+.amount-selector-arrow {
+    cursor:pointer;
+}
