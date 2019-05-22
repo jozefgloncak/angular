@@ -1,4 +1,14 @@
 # Data
+Data (stored in src/assets/data/*.xls) were converted to JSON format by online .
+## How to get input data
+* Go to [MZSR web page](http://www.health.gov.sk/?zoznam-kategorizovanych-dietetickych-potravin)
+* click on the newest item in list
+* download XLS file with prefix **cast_H**
+* open XLS file and remove first line
+* remove merget cell in header (kód vykazujuci, kód párujúci, to have simple header)
+* upload XLS file to [converter](http://beautifytools.com/excel-to-json-converter.php)
+* click download and store json file locally
+
 Data has been converted from CSV format to JSON by [CSVtoJson converter](http://www.convertcsv.com/csv-to-json.htm)
 
 # ClarityExample

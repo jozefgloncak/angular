@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Grocery } from '../models/grocerie-model';
 import { GroceryView } from '../models/grocerie-view-model';
 
@@ -11,7 +11,7 @@ import { GroceryView } from '../models/grocerie-view-model';
 })
 export class DieteticGroceriesListComponent implements OnInit {
 
-  private groceriesView : GroceryView[];
+  public groceriesView : GroceryView[];
 
   constructor(private http: HttpClient) {}
 

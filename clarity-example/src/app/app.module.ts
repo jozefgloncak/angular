@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ClarityModule } from "@clr/angular";
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietetic-groceries-list.component';
@@ -19,8 +20,9 @@ import { AmountSelectorComponent } from './amount-selector/amount-selector.compo
     AmountSelectorComponent
   ],
   imports: [
-    BrowserModule,  
+    BrowserModule,
     ClarityModule,
+    FormsModule,
     HttpModule,
     HttpClientModule,
   ],

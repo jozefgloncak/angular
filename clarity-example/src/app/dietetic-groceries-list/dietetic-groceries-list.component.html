@@ -19,29 +19,12 @@
   <clr-dg-column>Množstevné limity</clr-dg-column>
 
   <ng-template ngFor let-groceryView [ngForOf]="groceriesView">
-    <!-- todo: remove duplicit code -->
-    <clr-dg-row *ngIf="groceryView.isSelected" class="datagrid-row-selected">
-        <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
+    <clr-dg-row class="datagrid-row-selected">
         <clr-dg-cell>
-            <amount-selector></amount-selector>
+            <clr-checkbox-wrapper>
+                <input type="checkbox" clrCheckbox [(ngModel)]="groceryView.isSelected">
+            </clr-checkbox-wrapper>
         </clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
-    </clr-dg-row>
-    <clr-dg-row *ngIf="!groceryView.isSelected">
-        <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
         <clr-dg-cell>
             <amount-selector></amount-selector>
         </clr-dg-cell>
