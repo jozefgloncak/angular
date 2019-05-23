@@ -1,8 +1,21 @@
 <h2>Potraviny</h2>
 <div class="p1">Zoznam potravín, na ktoré dopláca zdravotná poisťovňa:</div>
-<clr-datagrid>
+
+<clr-dropdown>
+    <button type="button" class="btn btn-outline-primary" clrDropdownTrigger>
+        Dropdown
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
+        <button *ngFor="let item of items" type="button"
+        clrDropdownItem (click)="handleClickFilterDefiner(item.name)">{{item.name}}</button>
+    </clr-dropdown-menu>
+</clr-dropdown>
+
+<clr-datagrid style="height:65vh">
   <clr-dg-column></clr-dg-column>
   <clr-dg-column></clr-dg-column>
+  <clr-dg-column>Podskupina</clr-dg-column>
   <clr-dg-column>Vykazujúci kód</clr-dg-column>
   <clr-dg-column>Párajúci kód</clr-dg-column>
   <clr-dg-column>Názov</clr-dg-column>
@@ -13,58 +26,56 @@
   <clr-dg-column>Úhrada zdravotnou poisťovňou</clr-dg-column>
   <clr-dg-column>Spôsob platby</clr-dg-column>
   <clr-dg-column>Doplatok poistenca</clr-dg-column>
+  <clr-dg-column>% doplatku poistenca</clr-dg-column>
   <clr-dg-column>LS výška prepočítaného doplatku</clr-dg-column>
   <clr-dg-column>RD v balení</clr-dg-column>
-  <clr-dg-column>Preskripčné obmedzenia</clr-dg-column>
-  <clr-dg-column>Množstevné limity</clr-dg-column>
+  <!-- <clr-dg-column>Preskripčné obmedzenia</clr-dg-column> -->
+  <clr-dg-column>Indikačné obmedzenie</clr-dg-column>
+  <clr-dg-column>Množstevný limit A</clr-dg-column>
+  <clr-dg-column>Množstevný limit B</clr-dg-column>
+  <clr-dg-column>Množstevný limit C</clr-dg-column>
+  <clr-dg-column>Energetická hodnota    (kcal/100 ml/g)</clr-dg-column>
+  <clr-dg-column>Proteíny (g/100ml/g)</clr-dg-column>
+  <clr-dg-column>Tuky (g/100ml/g)</clr-dg-column>
+  <clr-dg-column>Sacharidy (g/100ml/g)</clr-dg-column>
+  <clr-dg-column>Obsah gluténu</clr-dg-column>
+  <clr-dg-column>Cena za RD</clr-dg-column>
 
-  <ng-template ngFor let-groceryView [ngForOf]="groceriesView">
-    <clr-dg-row class="datagrid-row-selected">
+    <clr-dg-row *clrDgItems="let groceriesViewItem of groceriesView">
         <clr-dg-cell>
             <clr-checkbox-wrapper>
-                <input type="checkbox" clrCheckbox [(ngModel)]="groceryView.isSelected">
+                <input type="checkbox" clrCheckbox [(ngModel)]="groceriesViewItem.isSelected">
             </clr-checkbox-wrapper>
         </clr-dg-cell>
         <clr-dg-cell>
             <amount-selector></amount-selector>
         </clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
-        <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.subgroup}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.trackingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.pairingCode}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.name}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.supplement}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.producer}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.state}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.maxPrice}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.paymentWay}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.insuredSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.percentageInsuredSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.lsSurcharge}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.rdInPackage}}</clr-dg-cell>
+        <!-- <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell> -->
+        <clr-dg-cell>{{groceriesViewItem.grocery.indicationLimit}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.quantityLimitA}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.quantityLimitB}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.quantityLimitC}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.energeticValue}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.proteins}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.fats}}</clr-dg-cell>;
+        <clr-dg-cell>{{groceriesViewItem.grocery.sacharids}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.gluten}}</clr-dg-cell>
+        <clr-dg-cell>{{groceriesViewItem.grocery.priceForRD}}</clr-dg-cell>
     </clr-dg-row>
-  </ng-template>
   <clr-dg-footer>{{groceriesView.length}} potravín</clr-dg-footer>
-  <!-- <clr-dg-row class="datagrid-row-selected" *ngFor="let groceryView of groceriesView">
-      <clr-dg-cell><clr-checkbox [(clrChecked)]="groceryView.isSelected"></clr-checkbox></clr-dg-cell>
-      <clr-dg-cell>
-          <amount-selector></amount-selector>
-      </clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.trackingCode}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.pairingCode}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.name}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.supplement}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.producer}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.state}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.maxPrice}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.healthInsuranceCompanySurcharge}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.paymentWay}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.insuredSurcharge}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.lsSurcharge}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.rdInPackage}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.prescriptionLimit}}</clr-dg-cell>
-      <clr-dg-cell>{{groceryView.grocery.quantityLimit}}</clr-dg-cell>
-  </clr-dg-row> -->
-
 
 </clr-datagrid>

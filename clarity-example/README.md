@@ -11,6 +11,16 @@ Data (stored in src/assets/data/*.xls) were converted to JSON format by online .
 
 Data has been converted from CSV format to JSON by [CSVtoJson converter](http://www.convertcsv.com/csv-to-json.htm)
 
+# Next development
+* **done** - use data input with slovak keys in JSON
+* **in progress** - filtering - provided from clarity doesn't worked (even simple string filter). creating own filter based on selecting filtering properties from dropdown and then specifing their value
+* sorting of columns
+* make it possible to specify name, surname, birth number
+* make it possible to upload file to backend
+* add butom generate order - which will generate from selectd rows and personal data
+text order which can be copy pasted to e-mail
+* language support
+
 # ClarityExample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.

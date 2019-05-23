@@ -11,7 +11,13 @@ import { GroceryView } from '../models/grocerie-view-model';
 })
 export class DieteticGroceriesListComponent implements OnInit {
 
-  public groceriesView : GroceryView[];
+  //TODO; replace with something more clever :)
+  public items = [
+    {name: "item1"},
+    {name: "item2"}
+  ]
+
+  public groceriesView : GroceryView[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -25,6 +31,10 @@ export class DieteticGroceriesListComponent implements OnInit {
 
   public getGroceries(): Observable<any> {
     return this.http
-      .get('/assets/data/groceries.json');
+      .get('/assets/data/data.json');
+  }
+
+  public handleClickFilterDefiner(name: string) {
+    console.log(name);
   }
 }
