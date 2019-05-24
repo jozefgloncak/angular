@@ -13,13 +13,41 @@ Data has been converted from CSV format to JSON by [CSVtoJson converter](http://
 
 # Next development
 * **done** - use data input with slovak keys in JSON
-* **in progress** - filtering - provided from clarity doesn't worked (even simple string filter). creating own filter based on selecting filtering properties from dropdown and then specifing their value
+* **in progress** - filtering - 
+    * **done** - defining of filter (see [filtering](#filtering) for more details.)
+    * **not started** - filtering of data according to specified filter.
 * sorting of columns
 * make it possible to specify name, surname, birth number
 * make it possible to upload file to backend
 * add butom generate order - which will generate from selectd rows and personal data
 text order which can be copy pasted to e-mail
 * language support
+
+# Filtering
+<a name="filtering"></a>
+Filtering consists of 2 parts:
+* defining of filter - filter is defined through stanalone component **filter.component**. This component is rendered at the top of the main window (where table is displayed).
+It is possible to define following filter building blocks: 
+  * filtering value - column value + column name
+  * filtering row - set of filtering values
+  * filter - set of filtering rows. 
+* filtering of data - among above mentioned building blocks of filter are following relations:
+  * among filtering values there is logical AND. if there is several filtering values witch the same column name then there is logical OR
+
+        columnA=valueA AND (columnB=valueB OR columnB=valueB) AND columnC=valueC [1]
+  * among filtering row there is logical OR
+
+        (colA=valA AND (colB=valB OR colB=valB1) AND colC=valC)
+        OR
+        ((colA=valA OR colA=valA1) AND colB=valB1 AND colC=valC) [2]
+## Filter usage
+By selecting column name from dropdown (at the top) it can be defined table column name [3] which can be added to current filtering set.
+
+By clicking on + icon (next to dropdown), input box with [3] will be added and value for this column can be specified. 
+
+By clicking on - icon input box is removed.
+
+By clicking on + icon under drop down, new filtering row is specified. 
 
 # ClarityExample
 

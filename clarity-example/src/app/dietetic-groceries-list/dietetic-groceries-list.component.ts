@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Grocery } from '../models/grocerie-model';
 import { GroceryView } from '../models/grocerie-view-model';
+import { FilterInputTemplate } from '../filter/model/FilterInputTemplate';
 
 @Component({
   selector: 'dietetic-groceries-list',
@@ -11,11 +12,7 @@ import { GroceryView } from '../models/grocerie-view-model';
 })
 export class DieteticGroceriesListComponent implements OnInit {
 
-  //TODO; replace with something more clever :)
-  public items = [
-    {name: "item1"},
-    {name: "item2"}
-  ]
+  public filteringTemplate = new Array<FilterInputTemplate>();
 
   public groceriesView : GroceryView[] = [];
 
@@ -27,14 +24,17 @@ export class DieteticGroceriesListComponent implements OnInit {
       let dataAsAray : Array<any> = <Array<any>>data;
       this.groceriesView = dataAsAray.map(element => new GroceryView(new Grocery(element)));
     });
+    let newArray: Array<FilterInputTemplate> = new Array();
+    newArray.push(new FilterInputTemplate('subgroup', 'string', 'Subgroup'));
+    newArray.push(new FilterInputTemplate('trackinigCode', 'string', 'Tracking code'));
+    newArray.push(new FilterInputTemplate('pairingCode', 'string', 'Pairing code'));
+    newArray.push(new FilterInputTemplate('name', 'string', 'Name'));
+    this.filteringTemplate = newArray
+    console.log('tu');
   }
-
   public getGroceries(): Observable<any> {
     return this.http
       .get('/assets/data/data.json');
   }
 
-  public handleClickFilterDefiner(name: string) {
-    console.log(name);
-  }
 }

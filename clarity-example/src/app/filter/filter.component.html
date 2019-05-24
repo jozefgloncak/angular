@@ -1,0 +1,24 @@
+<div *ngFor="let filteringRowToRender of filteringRowsToRender">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <select clrSelect name="tableField" [(ngModel)]="filteringRowToRender.filterInputTemplateToAdd">
+        <option *ngFor="let filterTemplate of filterTemplates"
+          [ngValue]="filterTemplate">
+            {{filterTemplate.showLabel}}
+        </option>
+    </select>
+    <clr-icon shape="plus"
+      (click)="addFilteringValue(filteringRowToRender, filteringRowToRender.filterInputTemplateToAdd)"></clr-icon>
+    <div *ngFor="let filteringValue of filteringRowToRender.filteringValues; index as i">
+      <clr-input-container>
+        <label>{{filteringValue.template.showLabel}}</label>
+        <input clrInput placeholder="My input" name="input" [(ngModel)]="filteringValue.value" />
+      </clr-input-container>
+      <clr-icon shape="minus"
+        (click)="removeFilteringValue(filteringRowToRender, i)"></clr-icon>
+    </div>
+  </div>
+  <div fxLayout="row">
+</div>
+</div>
+<clr-icon shape="plus" (click)="addFilterRow()"></clr-icon>
+{{filteringRowsToRender | json}}

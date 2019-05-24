@@ -9,15 +9,16 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietetic-groceries-list.component';
 import { AmountSelectorComponent } from './amount-selector/amount-selector.component';
-
-
+import { FilterComponent } from './filter/filter.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DieteticGroceriesListComponent,
-    AmountSelectorComponent
+    AmountSelectorComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +26,7 @@ import { AmountSelectorComponent } from './amount-selector/amount-selector.compo
     FormsModule,
     HttpModule,
     HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

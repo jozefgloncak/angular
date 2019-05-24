@@ -1,16 +1,7 @@
 <h2>Potraviny</h2>
 <div class="p1">Zoznam potravín, na ktoré dopláca zdravotná poisťovňa:</div>
 
-<clr-dropdown>
-    <button type="button" class="btn btn-outline-primary" clrDropdownTrigger>
-        Dropdown
-        <clr-icon shape="caret down"></clr-icon>
-    </button>
-    <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
-        <button *ngFor="let item of items" type="button"
-        clrDropdownItem (click)="handleClickFilterDefiner(item.name)">{{item.name}}</button>
-    </clr-dropdown-menu>
-</clr-dropdown>
+<app-filter [filterTemplates]="filteringTemplate"></app-filter>
 
 <clr-datagrid style="height:65vh">
   <clr-dg-column></clr-dg-column>
