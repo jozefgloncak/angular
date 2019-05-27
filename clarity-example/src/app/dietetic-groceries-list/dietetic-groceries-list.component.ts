@@ -14,15 +14,20 @@ export class DieteticGroceriesListComponent implements OnInit {
 
   public filteringTemplate = new Array<FilterInputTemplate>();
 
-  public groceriesView : GroceryView[] = [];
+  public groceriesView : Grocery[] = [];
 
   constructor(private http: HttpClient) {}
 
+  displayedColumns: string[] = ['subgroup', 'trackingCode'];
+
   ngOnInit() {
+    console.log('zaciatok nacitavania ', new Date().toString());
     this.getGroceries().subscribe(data => {
+      console.log('koniec nacitavania ', new Date().toString());
       //TODO: check whether it is array
       let dataAsAray : Array<any> = <Array<any>>data;
-      this.groceriesView = dataAsAray.map(element => new GroceryView(new Grocery(element)));
+      this.groceriesView = dataAsAray.map(element => new Grocery(element));
+      console.log('koniec parsovania ', new Date().toString());
     });
     let newArray: Array<FilterInputTemplate> = new Array();
     newArray.push(new FilterInputTemplate('subgroup', 'string', 'Subgroup'));

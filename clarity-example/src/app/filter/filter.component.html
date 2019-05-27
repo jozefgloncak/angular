@@ -1,24 +1,25 @@
-<div *ngFor="let filteringRowToRender of filteringRowsToRender">
+<div fxLayout="row" *ngFor="let filteringRowToRender of filteringRowsToRender; index as j">
+  <mat-icon *ngIf="j>0" (click)="removeFilterRow(j)">remove</mat-icon>
   <div fxLayout="row" fxLayoutAlign="start center">
-    <select clrSelect name="tableField" [(ngModel)]="filteringRowToRender.filterInputTemplateToAdd">
-        <option *ngFor="let filterTemplate of filterTemplates"
-          [ngValue]="filterTemplate">
-            {{filterTemplate.showLabel}}
-        </option>
-    </select>
-    <clr-icon shape="plus"
-      (click)="addFilteringValue(filteringRowToRender, filteringRowToRender.filterInputTemplateToAdd)"></clr-icon>
-    <div *ngFor="let filteringValue of filteringRowToRender.filteringValues; index as i">
-      <clr-input-container>
+    <mat-form-field>
+      <mat-select name="tableField" [(value)]="filteringRowToRender.filterInputTemplateToAdd">
+          <mat-option *ngFor="let filterTemplate of filterTemplates"
+            [value]="filterTemplate">
+              {{filterTemplate.showLabel}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-icon (click)="addFilteringValue(filteringRowToRender, filteringRowToRender.filterInputTemplateToAdd)">add</mat-icon>
+    <div fxLayout="column" *ngFor="let filteringValue of filteringRowToRender.filteringValues; index as i">
+      <mat-icon (click)="removeFilteringValue(filteringRowToRender, i)">remove</mat-icon>
+      <mat-form-field>
         <label>{{filteringValue.template.showLabel}}</label>
-        <input clrInput placeholder="My input" name="input" [(ngModel)]="filteringValue.value" />
-      </clr-input-container>
-      <clr-icon shape="minus"
-        (click)="removeFilteringValue(filteringRowToRender, i)"></clr-icon>
+        <input matInput name="input" [(ngModel)]="filteringValue.value" />
+      </mat-form-field>
     </div>
   </div>
   <div fxLayout="row">
 </div>
 </div>
-<clr-icon shape="plus" (click)="addFilterRow()"></clr-icon>
+<mat-icon (click)="addFilterRow()">add</mat-icon>
 {{filteringRowsToRender | json}}
