@@ -6,8 +6,6 @@
 <div style="max-height:400px; overflow:auto">
 <table mat-table [dataSource]="groceriesView" style="width:100%">
 
-        <!-- <clr-dg-column></clr-dg-column>
-        <clr-dg-column></clr-dg-column> -->
     <ng-container matColumnDef="subgroup">
             <th mat-header-cell *matHeaderCellDef>Podskupina</th>
             <td mat-cell *matCellDef="let element"> {{element.subgroup}} </td>
