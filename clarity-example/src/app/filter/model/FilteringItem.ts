@@ -10,7 +10,7 @@ import { FilterInputTemplate } from "./FilterInputTemplate";
  */
 export class FilteringRow {
     filteringValues: Array<FilteringValue<any>> = new Array();
-    filterInputTemplateToAdd: FilterInputTemplate; // filter input template which is selected and will be added to
+    filterInputTemplateToAdd: number; // filter input template which is selected and will be added to
 
     constructor() {
 

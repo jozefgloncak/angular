@@ -4,21 +4,22 @@
 <app-filter [filterTemplates]="filteringTemplate"></app-filter>
 
 <div style="max-height:400px; overflow:auto">
-<table mat-table [dataSource]="groceriesView" style="width:100%">
+<table mat-table [dataSource]="groceriesViewDataSource" matSort style="width:100%">
 
     <ng-container matColumnDef="subgroup">
-            <th mat-header-cell *matHeaderCellDef>Podskupina</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Podskupina</th>
             <td mat-cell *matCellDef="let element"> {{element.subgroup}} </td>
     </ng-container>
 
     <ng-container matColumnDef="trackingCode">
-            <th mat-header-cell *matHeaderCellDef>Vykazujúci kód</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Vykazujúci kód</th>
             <td mat-cell *matCellDef="let element">{{element.trackingCode}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
 <!--  <clr-dg-column>Podskupina</clr-dg-column>
   <clr-dg-column>Vykazujúci kód</clr-dg-column>
