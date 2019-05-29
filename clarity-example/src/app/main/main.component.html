@@ -1,0 +1,14 @@
+<h2>Potraviny</h2>
+<div class="p1">Zoznam potravín, na ktoré dopláca zdravotná poisťovňa:</div>
+
+<app-filter [filterTemplates]="filteringTemplate"></app-filter>
+
+<app-groceries-table
+        [groceriesView]="groceriesAvailable"
+        [title]="'Dostupné dietetické potraviny'"
+        (grocerySelected)="handleGrocerySelected($event)"></app-groceries-table>
+
+<app-groceries-table
+        [groceriesView]="groceriesSelected"
+        [title]="'Vybraté dietetické potraviny'"
+        (grocerySelected)="handleGroceryUnselected($event)"></app-groceries-table>

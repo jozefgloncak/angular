@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { DieteticGroceriesListComponent } from './dietetic-groceries-list/dietetic-groceries-list.component';
+import { MainComponent } from './main/main.component';
 import { AmountSelectorComponent } from './amount-selector/amount-selector.component';
 import { FilterComponent } from './filter/filter.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -48,14 +48,16 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { GroceriesTableComponent } from './groceries-table/groceries-table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DieteticGroceriesListComponent,
+    MainComponent,
     AmountSelectorComponent,
-    FilterComponent
+    FilterComponent,
+    GroceriesTableComponent
   ],
   imports: [
     BrowserModule,

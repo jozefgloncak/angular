@@ -1,4 +1,7 @@
 export class Grocery {
+    static currentId: number = 0;
+
+    id: number;
     subgroup: string;
     trackingCode: string;
     pairingCode: string;
@@ -26,6 +29,7 @@ export class Grocery {
     priceForRD: number;
 
     constructor(data: any) {
+        this.id = Grocery.currentId++;
         this.subgroup = data.subgroup ? data.subgroup : data["Podskupina"];
         this.trackingCode = data.trackingCode ? data.trackingCode : data["Kód vykazujúci"];
         this.pairingCode = data.pairingCode ? data.pairingCode : data["Kód párujúci"]
