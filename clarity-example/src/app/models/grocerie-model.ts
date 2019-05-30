@@ -2,6 +2,9 @@ export class Grocery {
     static currentId: number = 0;
 
     id: number;
+    isHiddenBecauseFilterOut: boolean = false;
+    isHiddenBecauseSelected: boolean = false;
+
     subgroup: string;
     trackingCode: string;
     pairingCode: string;

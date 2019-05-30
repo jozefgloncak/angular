@@ -62,11 +62,11 @@ export class FilterComponent implements OnInit {
   public removeFilteringValue(filteringRow: FilteringRow, filteringRowIdx: number, idxOfFilterValue: number, filteringValue: FilteringValue<any>) {
     console.log('creating new input element from template')
     filteringRow.removeFilteringValue(idxOfFilterValue);
-    this.filter[filteringRowIdx][filteringValue.templateIdx][filteringValue.id] = undefined;
+    delete this.filter[filteringRowIdx][filteringValue.templateIdx][filteringValue.id];;
     let filterTemplate: Object = this.filter[filteringRowIdx][filteringValue.templateIdx];
     filterTemplate['count'] = --filterTemplate['count'];
     if (filterTemplate['count']===0) {
-      this.filter[filteringRowIdx][filteringValue.templateIdx] = undefined;
+      delete this.filter[filteringRowIdx][filteringValue.templateIdx];
     }
   }
 

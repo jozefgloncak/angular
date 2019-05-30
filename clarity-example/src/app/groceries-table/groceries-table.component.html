@@ -123,7 +123,8 @@
         </ng-container>
             
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="rowDblClickHandler(row)"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="rowDblClickHandler(row)"
+          [hidden]="row.isHidden"></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
