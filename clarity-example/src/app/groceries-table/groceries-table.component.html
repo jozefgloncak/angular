@@ -1,131 +1,146 @@
 <h3>{{title}}</h3>
 <div style="max-height:400px; overflow:auto">
     <table mat-table [dataSource]="groceriesViewDataSource" matSort style="width:100%">
-    
+
+        <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Akcia</th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-icon class="handCursor" (click)="rowDblClickHandler(element)">{{action}}</mat-icon>
+                </td>
+        </ng-container>
+
+        <ng-container matColumnDef="countToOrder">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Počet</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="countCell">
+                        <input matInput type="number" (change)="handleCountToOrderChanged(element)" [(ngModel)]="element.countToOrder">
+                    </mat-form-field>
+                </td>
+        </ng-container>
+
         <ng-container matColumnDef="subgroup">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Podskupina</th>
                 <td mat-cell *matCellDef="let element"> {{element.subgroup}}</td>
         </ng-container>
-    
+
         <ng-container matColumnDef="trackingCode">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Vykazujúci kód</th>
                 <td mat-cell *matCellDef="let element">{{element.trackingCode}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="pairingCode">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Párajúci kód</th>
                 <td mat-cell *matCellDef="let element">{{element.pairingCode}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Názov</th>
                 <td mat-cell *matCellDef="let element">{{element.name}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="supplement">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Doplnok</th>
                 <td mat-cell *matCellDef="let element">{{element.supplement}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="producer">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Výrobca</th>
                 <td mat-cell *matCellDef="let element">{{element.producer}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="state">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Štát</th>
                 <td mat-cell *matCellDef="let element">{{element.state}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="maxPrice">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Maximálna cena v lekárni</th>
                 <td mat-cell *matCellDef="let element">{{element.maxPrice}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="healthInsuranceCompanySurcharge">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Úhrada zdravotnou poisťovňou</th>
                 <td mat-cell *matCellDef="let element">{{element.healthInsuranceCompanySurcharge}} </td>
         </ng-container>
-        
+
         <ng-container matColumnDef="paymentWay">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Spôsob platby</th>
             <td mat-cell *matCellDef="let element">{{element.paymentWay}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="insuredSurcharge">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Doplatok poistenca</th>
                 <td mat-cell *matCellDef="let element">{{element.insuredSurcharge}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="percentageInsuredSurcharge">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>% doplatku poistenca</th>
                 <td mat-cell *matCellDef="let element">{{element.percentageInsuredSurcharge}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="lsSurcharge">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>LS výška prepočítaného doplatku</th>
                 <td mat-cell *matCellDef="let element">{{element.lsSurcharge}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="rdInPackage">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>RD v balení</th>
                 <td mat-cell *matCellDef="let element">{{element.rdInPackage}} </td>
         </ng-container>
-        
+
         <ng-container matColumnDef="indicationLimit">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Indikačné obmedzenie</th>
                 <td mat-cell *matCellDef="let element">{{element.indicationLimit}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="quantityLimitA">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Množstevný limit A</th>
                 <td mat-cell *matCellDef="let element">{{element.quantityLimitA}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="quantityLimitB">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Množstevný limit B</th>
                 <td mat-cell *matCellDef="let element">{{element.quantityLimitB}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="quantityLimitC">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Množstevný limit C</th>
                 <td mat-cell *matCellDef="let element">{{element.quantityLimitC}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="energeticValue" sticky>
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Energetická hodnota    (kcal/100 ml/g)</th>
                 <td mat-cell *matCellDef="let element">{{element.energeticValue}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="proteins">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Proteíny (g/100ml/g)</th>
                 <td mat-cell *matCellDef="let element">{{element.proteins}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="fats">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Tuky (g/100ml/g)</th>
                 <td mat-cell *matCellDef="let element">{{element.fats}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="sacharids">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Sacharidy (g/100ml/g)</th>
                 <td mat-cell *matCellDef="let element">{{element.sacharids}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="gluten" stickyEnd>
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Obsah gluténu</th>
                 <td mat-cell *matCellDef="let element">{{element.gluten}} </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="priceForRD">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena za RD</th>
                 <td mat-cell *matCellDef="let element">{{element.priceForRD}} </td>
         </ng-container>
-            
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="rowDblClickHandler(row)"
-          [hidden]="row.isHidden"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [hidden]="row.isHidden"></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
-    
+

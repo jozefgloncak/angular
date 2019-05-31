@@ -13,4 +13,13 @@
 <app-groceries-table
         [groceriesView]="groceriesSelectedView"
         [title]="'Vybraté dietetické potraviny'"
+        [additionalColumns]="['countToOrder']"
+        [action]="'remove'"
+        (countToOrderChanged)="handleCountToOrderChanged()"
         (grocerySelected)="handleGroceryUnselected($event)"></app-groceries-table>
+
+<mat-form-field class="textarea">
+        <textarea matInput 
+                [(ngModel)]="textResult"
+                cdkAutosizeMinRows="150"></textarea>
+</mat-form-field>

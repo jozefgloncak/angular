@@ -1,10 +1,6 @@
 import { Component, OnInit, ViewChild, Input, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Grocery } from '../models/grocerie-model';
-import { FilterInputTemplate } from '../filter/model/FilterInputTemplate';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
-import { GrocerySelecting } from '../models/grocerie-selecting-model';
 
 @Component({
   selector: 'app-groceries-table',
@@ -13,9 +9,19 @@ import { GrocerySelecting } from '../models/grocerie-selecting-model';
 })
 export class GroceriesTableComponent implements OnInit {
 
+  private basicDisplayedColumns: string[] = [
+    'subgroup', 'trackingCode', 'pairingCode',
+    'name', 'supplement','producer','state','maxPrice','healthInsuranceCompanySurcharge',
+    'paymentWay','insuredSurcharge','percentageInsuredSurcharge','lsSurcharge','rdInPackage',
+    'indicationLimit','quantityLimitA','quantityLimitB','quantityLimitC','energeticValue',
+    'proteins','fats','sacharids','gluten','priceForRD',
+  ]
   private _groceriesView : Grocery[] = [];
 
   public groceriesViewDataSource = new MatTableDataSource<Grocery>(this._groceriesView);
+
+
+  @Input() action: string = 'add';  //add or remove
 
   @Input()
   set groceriesView(groceriesView) {
@@ -25,15 +31,16 @@ export class GroceriesTableComponent implements OnInit {
 
   @Input() title: string = ""
 
-  @Output() grocerySelected: EventEmitter<GrocerySelecting> = new EventEmitter();
+  private _additionalColumns: string[] = []
+  @Input()
+  set additionalColumns(columns) {
+    this.displayedColumns = ['action'].concat(columns, this.basicDisplayedColumns)
+  }
 
-  displayedColumns: string[] = [
-    'subgroup', 'trackingCode', 'pairingCode',
-    'name', 'supplement','producer','state','maxPrice','healthInsuranceCompanySurcharge',
-    'paymentWay','insuredSurcharge','percentageInsuredSurcharge','lsSurcharge','rdInPackage',
-    'indicationLimit','quantityLimitA','quantityLimitB','quantityLimitC','energeticValue',
-    'proteins','fats','sacharids','gluten','priceForRD',
-  ]
+  @Output() grocerySelected: EventEmitter<Grocery> = new EventEmitter();
+  @Output() countToOrderChanged: EventEmitter<Grocery> = new EventEmitter();
+
+  displayedColumns: string[] = ['action'].concat(this.basicDisplayedColumns);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -47,6 +54,11 @@ export class GroceriesTableComponent implements OnInit {
 
   rowDblClickHandler(grocery:Grocery) {
     this.grocerySelected.emit(grocery);
+  }
+
+  handleCountToOrderChanged(grocery:Grocery) {
+    console.log('amount changed ', grocery)
+    this.countToOrderChanged.emit(grocery);
   }
 
 }

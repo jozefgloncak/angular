@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   groceriesAvailable: Grocery[] = [];
   groceriesSelectedView: Grocery[] = [];
   groceriesAvailableView: Grocery[] = [];
+  textResult: string;
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class MainComponent implements OnInit {
     this.filteringTemplate = newArray
   }
   public getGroceries(): Observable<any> {
-    return this.http.get('/assets/data/data.json');
+    return this.http.get('./assets/data/data.json');
   }
 
   /**
@@ -45,6 +46,7 @@ export class MainComponent implements OnInit {
   handleGrocerySelected(grocerySelecting: Grocery) {
     grocerySelecting.isHiddenBecauseSelected = true;
     this.generateGroceriesToView();
+    this.generateResultText();
   }
 
   /**
@@ -55,6 +57,7 @@ export class MainComponent implements OnInit {
   handleGroceryUnselected(groceryUnselecting: Grocery) {
     groceryUnselecting.isHiddenBecauseSelected = false;
     this.generateGroceriesToView();
+    this.generateResultText();
   }
 
   /**
@@ -141,6 +144,21 @@ export class MainComponent implements OnInit {
         this.groceriesSelectedView.push(grocery);
       }
     }
+  }
+
+  generateResultText() {
+    let result = "";
+    this.groceriesSelectedView.forEach(selectedGrocery => {
+      result = result + selectedGrocery.countToOrder + " * \t" +
+       selectedGrocery.trackingCode + "\t" +
+       selectedGrocery.name + "\n";
+    })
+    console.log('generate result');
+    this.textResult = result;
+  }
+
+  handleCountToOrderChanged() {
+    this.generateResultText();
   }
 
 }

@@ -4,6 +4,7 @@ export class Grocery {
     id: number;
     isHiddenBecauseFilterOut: boolean = false;
     isHiddenBecauseSelected: boolean = false;
+    countToOrder: number = 0;
 
     subgroup: string;
     trackingCode: string;

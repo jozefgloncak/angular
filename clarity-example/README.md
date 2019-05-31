@@ -13,15 +13,16 @@ Data has been converted from CSV format to JSON by [CSVtoJson converter](http://
 
 # Next development
 * **done** - use data input with slovak keys in JSON
-* **in progress** - filtering - 
+* **done** - filtering - 
     * **done** - defining of filter (see [filtering](#filtering) for more details.)
-    * **not started** - filtering of data according to specified filter.
-* sorting of columns
-* make it possible to specify name, surname, birth number
-* make it possible to upload file to backend
-* add butom generate order - which will generate from selectd rows and personal data
-text order which can be copy pasted to e-mail
-* language support
+    * **done** - filtering of data according to specified filter.
+* **done** sorting of columns
+* **done** - add button generate order - which will generate from selectd rows and personal data text order which can be copy pasted to e-mail
+    * but no button but on data change (selected set or changed number of items) is re-generated output set
+* **not started** - make it possible to specify name, surname, birth number for final generation of doctor order. standalone object which will contain form. At main page it will be hiden behind wrench icon above filter.
+* **not started** - make it possible to upload file to application with fresh dietetic groceries data in JSON format
+* **not started** - language support
+* **not started** - validate defined groceries set against amount limit
 
 # Filtering
 <a name="filtering"></a>
@@ -49,13 +50,16 @@ By clicking on - icon input box is removed.
 
 By clicking on + icon under drop down, new filtering row is specified. 
 
-# ClarityExample
+More infor about filtering are in [documentation](./src/app/filter/README.md) of filtering component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+# Dietetic groceries
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.8 and NodeJS 10.14.2
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --open --host=0.0.0.0
+` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -63,7 +67,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build. If used flag prod then if you want to run locally edit generated index.hmtl and replace `  <base href="/">` with   `<base href="./">`
 
 ## Running unit tests
 
